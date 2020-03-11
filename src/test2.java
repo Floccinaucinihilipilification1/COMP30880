@@ -13,6 +13,7 @@ public class test2 {
         try (BufferedReader br =
                      new BufferedReader(new FileReader(file))) {
             while((line = br.readLine()) != null){
+            	line = replaceCommas(line);
                 List<String> values = Arrays.asList(line.split(delimiter));
                 lines.add(values);
             }
@@ -21,4 +22,22 @@ public class test2 {
             System.out.println(e);
         }
     }
+    
+    
+    //replaces any ',' enclosed in '"' with ';' then removes all '"' (Could possibly use regular expression instead?)
+    public static String replaceCommas(String myString) {
+    	boolean inQuotes = false;
+		for (int i=0; i < myString.length(); i++) {
+    		
+    		if ((myString.charAt(i) == '\"') && (!inQuotes) ) inQuotes = true;    		
+    		else if (myString.charAt(i) == '\"') inQuotes = false;
+    		
+    		if (inQuotes && myString.charAt(i) == ',') {
+    			myString = myString.substring(0,i) + ';' + myString.substring(i+1);
+    		}
+    	}
+		myString = myString.replace("\"", "");
+		return myString;
+    }
+    
 }
