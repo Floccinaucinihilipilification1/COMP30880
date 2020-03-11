@@ -40,4 +40,10 @@ public class test2 {
 		return myString;
     }
     
+    //can be used to convert columns 2 and 3 into array lists
+    public static List<String> toArrayList(String myString) {
+		String delimiter = ";";
+    	return Arrays.asList(myString.split(delimiter));
+    }
+    
 }
