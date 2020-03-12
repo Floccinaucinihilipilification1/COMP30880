@@ -9,15 +9,24 @@ public class test2 {
        String file = "src/Miskatonic Staff Members.csv";
        String delimiter = ",";
        String line;
-       List<List<String>> lines = new ArrayList();
+       List<StaffMember> staffMembers = new ArrayList();
         try (BufferedReader br =
                      new BufferedReader(new FileReader(file))) {
+        	br.readLine(); //initial readline() so not to include first line (column names) 
             while((line = br.readLine()) != null){
             	line = replaceCommas(line);
-                List<String> values = Arrays.asList(line.split(delimiter));
-                lines.add(values);
+                List<String> columns = Arrays.asList(line.split(delimiter, -1));           
+                
+                String name = columns.get(0);
+                List<String> researchActivity = toArrayList(columns.get(1));
+                List<String> researchArea = toArrayList(columns.get(2));
+                String specialFocus = columns.get(3);
+                
+                StaffMember staffMember = new StaffMember(name, researchActivity, 
+                		researchArea, specialFocus);
+                staffMembers.add(staffMember);
             }
-            lines.forEach(l -> System.out.println(l));
+            staffMembers.forEach(staffMember -> System.out.println(staffMember.toString()));
         } catch (Exception e){
             System.out.println(e);
         }
@@ -40,7 +49,7 @@ public class test2 {
 		return myString;
     }
     
-    //can be used to convert columns 2 and 3 into array lists
+    //used to convert columns 2 and 3 into array lists
     public static List<String> toArrayList(String myString) {
 		String delimiter = ";";
     	return Arrays.asList(myString.split(delimiter));

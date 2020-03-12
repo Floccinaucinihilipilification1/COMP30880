@@ -14,18 +14,13 @@ public class test {
 	 //       }  
 	 //        br.close();    
 	 //       fr.close(); 
-		
-		
-
 
 
 	          
 	         BufferedReader in = new BufferedReader(new FileReader("src/Miskatonic Staff Members.csv"));
 	         String line;
 	         while ((line = in.readLine()) != null) {
-	              String[] fields = line.split(",");
-	           System.out.println(Arrays.toString(fields));
-	           
+	              System.out.println(line);
 	             
 	          }
 	         
