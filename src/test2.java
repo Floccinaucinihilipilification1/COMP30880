@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 public class test2 {
@@ -9,7 +10,7 @@ public class test2 {
        String file = "src/Miskatonic Staff Members.csv";
        String delimiter = ",";
        String line;
-       List<StaffMember> staffMembers = new ArrayList();
+       List<StaffMember> staffMembers = new LinkedList<StaffMember>();
         try (BufferedReader br =
                      new BufferedReader(new FileReader(file))) {
         	br.readLine(); //initial readline() so not to include first line (column names) 
@@ -18,15 +19,20 @@ public class test2 {
                 List<String> columns = Arrays.asList(line.split(delimiter, -1));           
                 
                 String name = columns.get(0);
-                List<String> researchActivity = toArrayList(columns.get(1));
-                List<String> researchArea = toArrayList(columns.get(2));
+                List<String> researchActivity = toLinkedList(columns.get(1));
+                List<String> researchArea = toLinkedList(columns.get(2));
                 String specialFocus = columns.get(3);
                 
                 StaffMember staffMember = new StaffMember(name, researchActivity, 
                 		researchArea, specialFocus);
                 staffMembers.add(staffMember);
             }
-            staffMembers.forEach(staffMember -> System.out.println(staffMember.toString()));
+            for (int i=0; i < staffMembers.size()-1; i++) {
+            	System.out.println(staffMembers.get(i).toString());
+            	System.out.println(staffMembers.get(i).randomActivity());
+            	System.out.println(staffMembers.get(i).toString());
+
+            }
         } catch (Exception e){
             System.out.println(e);
         }
@@ -50,9 +56,11 @@ public class test2 {
     }
     
     //used to convert columns 2 and 3 into array lists
-    public static List<String> toArrayList(String myString) {
+    public static List<String> toLinkedList(String myString) {
 		String delimiter = ";";
-    	return Arrays.asList(myString.split(delimiter));
+		List<String>  myList = new LinkedList<String>();
+		myList.addAll(Arrays.asList(myString.split(delimiter)));
+		return myList;
     }
-    
+     
 }
