@@ -5,7 +5,7 @@ public class StaffMember {
 	List<String> researchActivity;
 	List<String> researchArea;
 	String specialFocus;
-	
+	GenerateProjectList list = new GenerateProjectList();
 	//constructor
 	StaffMember(String name, List<String> researchActivity, 
 			List<String> researchArea, String specialFocus) {
