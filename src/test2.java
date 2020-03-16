@@ -9,7 +9,7 @@ public class test2 {
        String file = "src/Miskatonic Staff Members.csv";
        String delimiter = ",";
        String line;
-       List<List<String>> lines = new ArrayList();
+       List<List<String>> lines = new ArrayList<List<String>>();
         try (BufferedReader br =
                      new BufferedReader(new FileReader(file))) {
             while((line = br.readLine()) != null){
