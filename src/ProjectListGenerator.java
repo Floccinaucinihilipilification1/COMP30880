@@ -64,9 +64,15 @@ public class ProjectListGenerator {
 							String project = staffMember.randomActivity();
 							String audience = null;
 							numProjects += staffMember.getReseachActivity().size();
-	            		
-							if (staffMember.getSpecialFocus().equals("Dagon Studies")) audience = "CS + DS";
-							else audience = "CS";  
+							List<String> audienceList = new LinkedList<String>();
+							audienceList.add("DS");
+							audienceList.add("CS");
+							audienceList.add("CS + DS");
+							
+							int audienceIndex = 0; 
+							if (!staffMember.getSpecialFocus().equals("Dagon Studies")) audienceIndex = r.nextInt(2)+1; //randomly assigns "CS" or "CS + DS" if focus isn't Dagon Studies
+							audience = audienceList.get(audienceIndex);
+							
 							projects.add(new Project(supervisor, project, audience));
 	            	}
 	            	else i--; //decrements and tries again if researchActivity is empty or staffMember is already included
@@ -87,7 +93,7 @@ public class ProjectListGenerator {
 						String supervisor = staffMember.getName();
 						String project = staffMember.randomActivity();
 						String audience;
-						if (staffMember.getSpecialFocus().equals("Dagon Studies")) audience = "CS + DS";
+						if (staffMember.getSpecialFocus().equals("Dagon Studies")) audience = "DS";
 						else audience = "CS";  
 						projects.add(new Project(supervisor, project, audience));
 					}
