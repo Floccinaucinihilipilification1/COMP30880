@@ -17,12 +17,10 @@ public class Student {
 		
 	}
 	
-	//removes random entry from research activity list and returns it
+	//Gets a random entry from projects list and returns it
 	public String randomProject() {
 		int n = 0;
 		String project = "";
-		
-		
 		while (n < 10) {
 		int i = 0;	
 		Random r = new Random();

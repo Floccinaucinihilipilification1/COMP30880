@@ -38,9 +38,10 @@ public class StudentGenerator {
                  String name = columns.get(0);
                  String StudentNumber = columns.get(1);
                  List<String> projects = toLinkedList(columns1.get(1));
+                 List<String> streams = toLinkedList(columns1.get(2));
                  Random z = new Random(); 
                  int x = 0;
-             	 x = z.nextInt(10);
+             	 x = z.nextInt(9);
                  
                  if (x <= 3) 
           		{
@@ -63,7 +64,7 @@ public class StudentGenerator {
          file = ("src/PreferenceList.csv");
          try (BufferedWriter bw =
                  new BufferedWriter(new FileWriter(file))) {
-         	int listLength = 500; //number of lines in projectList
+         	int listLength = 500; //number of lines in the List
              Random r = new Random();
           
              for (int i=0; i<listLength; i++ ) {
@@ -80,7 +81,7 @@ public class StudentGenerator {
              		bw.write(name + "," + StudentNumber + "," + stream + "," + project  );
              		bw.newLine();
              	}
-             	else i--; //decrements and tries again if researchActivity is empty
+             	else i--; //decrements and tries again if projects is empty
              }
              System.out.println("PreferenceList.csv successfully created");
     	   
