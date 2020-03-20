@@ -12,7 +12,7 @@ public class StudentGenerator {
     
 	String inputFile;
 	String inputFile2;
-
+	
 
 	
 	StudentGenerator(String inputFile, String inputFile2 ) {
@@ -77,7 +77,6 @@ public void StudentPrefsGenerator(String inputFile, String inputFile2) {
                  new BufferedWriter(new FileWriter(file))) {
          	int listLength = 500; //number of lines in the List
              Random r = new Random();
-             int s = 0;
              
              for (int i=0; i<listLength; i++ ) {
             	
