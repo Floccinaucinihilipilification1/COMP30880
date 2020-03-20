@@ -37,8 +37,8 @@ public class StudentGenerator {
              	
                  String name = columns.get(0);
                  String StudentNumber = columns.get(1);
+                 List<String> projectStream = toLinkedList(columns1.get(2));
                  List<String> projects = toLinkedList(columns1.get(1));
-                 List<String> streams = toLinkedList(columns1.get(2));
                  Random z = new Random(); 
                  int x = 0;
              	 x = z.nextInt(9);
@@ -54,7 +54,7 @@ public class StudentGenerator {
                  String Stream = field[x];
                   
                  Student student = new Student(name, StudentNumber, 
-                		 projects, Stream);
+                		 projects, Stream, projectStream);
                  Student.add(student);
              }
          } catch (Exception e){
@@ -66,7 +66,8 @@ public class StudentGenerator {
                  new BufferedWriter(new FileWriter(file))) {
          	int listLength = 500; //number of lines in the List
              Random r = new Random();
-          
+             int s = 0;
+             
              for (int i=0; i<listLength; i++ ) {
             	
              	int index = r.nextInt(Student.size());
@@ -74,8 +75,10 @@ public class StudentGenerator {
              	if (!student.getProjects().isEmpty()) {
              		String name = student.getName();
              		String StudentNumber = student.getStudentNumber();
-             		String project = student.randomProject();
              		String stream = student.getStream();
+             	    String project = student.randomProject(stream);
+             			
+             		
              		
              		
              		bw.write(name + "," + StudentNumber + "," + stream + "," + project  );
