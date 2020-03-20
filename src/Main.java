@@ -4,7 +4,7 @@ public class Main {
 		ProjectListGenerator generatePL = new ProjectListGenerator("src/Miskatonic Staff Members.csv");
 		generatePL.generateProjectList("src/projectList.csv", 30);
 		StudentGenerator generatePrefList = new StudentGenerator();
-		generatePrefList.StudentPrefsGenerator("src/names.csv","src/projectList.csv" );
+		generatePrefList.StudentPrefsGenerator("src/names.csv","src/projectList.csv" ); 
 		
 	}
 }
