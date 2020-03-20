@@ -9,7 +9,7 @@ public class Student {
 	List<String> projects;
 	String Stream;
 	List<String> projectStream;
-	StudentGenerator list = new StudentGenerator();
+	StudentGenerator list = new StudentGenerator(Stream, Stream);
 	//constructor
 	Student(String name,String StudentNumber, List<String> projects,  String Stream, List<String> projectStream) {
 		this.name = name;

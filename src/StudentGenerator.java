@@ -15,7 +15,7 @@ public class StudentGenerator {
 
 
 	
-	StudentGenerator() {
+	StudentGenerator(String inputFile, String inputFile2 ) {
 		this.inputFile = inputFile;
 		this.inputFile = inputFile2;
 		StudentPrefsGenerator(inputFile, inputFile2);
