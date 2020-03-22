@@ -3,7 +3,7 @@
 Team Pah tail
 -Dongryul Jeong
 -Donnchadh Robinson
--Michael Bradley
+-Michael Bradley (16407672)
 
 Michael Bradley, ProjectListGenerator.java: 
 The ProjectListGenerator class works by first creating a list of StaffMember instances using the info from the rows of Miskatonic Staff Members.csv.
