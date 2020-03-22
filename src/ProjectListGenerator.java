@@ -115,7 +115,7 @@ public class ProjectListGenerator {
 				 } catch (IOException e) {
 					e.printStackTrace();
 				}
-				System.out.println("projectList.csv successfully created");
+				System.out.println(outputFile + " successfully created");
 				
 				
 	}
