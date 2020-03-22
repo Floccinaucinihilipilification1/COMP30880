@@ -1,7 +1,7 @@
 # COMP30880
 
 Team Pah tail
--Dongryul Jeong
+-Dongryul Jeong (15205766)
 -Donnchadh Robinson (16742991)
 -Michael Bradley (16407672)
 
