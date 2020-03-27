@@ -140,6 +140,10 @@ public class ProjectListGenerator {
     
     //used to convert columns 2 and 3 into linked lists with delimiter ";"
     private List<String> toLinkedList(String myString) {
+    	
+ 
+    	
+    	
 		String delimiter = ";";
 		List<String>  myList = new LinkedList<String>();
 		myList.addAll(Arrays.asList(myString.split(delimiter)));
@@ -152,7 +156,18 @@ public class ProjectListGenerator {
     }
 
     private void  generateStaffMembers() {
-    	String delimiter = ",";
+    	
+    	String x = "";
+    	String y = "csv";
+    	String s = inputFile;
+    	String fileType = s.substring(s.length() - 3);
+    	if(fileType.equals(y)) 
+    	{ x = "," ;   }
+    	
+    	else {x ="/t";}
+    	
+    	
+    	String delimiter = x;
 		String line;
 		staffMembers = new LinkedList<StaffMember>();
 		BufferedReader br = null;
@@ -160,7 +175,7 @@ public class ProjectListGenerator {
         	br = new BufferedReader(new FileReader(inputFile));
         	br.readLine(); //initial readLine() so not to include first line (column names) in loop 
             while((line = br.readLine()) != null){
-            	line = line.replace(", ", ","); //removes leading whitespace between columns
+            	line = line.replace(x + " ", x); //removes leading whitespace between columns
             	line = replaceCommas(line);
                 
             	List<String> columns = Arrays.asList(line.split(delimiter, -1));           
