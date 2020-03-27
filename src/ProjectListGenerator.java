@@ -164,7 +164,7 @@ public class ProjectListGenerator {
     	if(fileType.equals(y)) 
     	{ x = "," ;   }
     	
-    	else {x ="/t";}
+    	else {x ="\t";}
     	
     	
     	String delimiter = x;
@@ -175,7 +175,12 @@ public class ProjectListGenerator {
         	br = new BufferedReader(new FileReader(inputFile));
         	br.readLine(); //initial readLine() so not to include first line (column names) in loop 
             while((line = br.readLine()) != null){
-            	line = line.replace(x + " ", x); //removes leading whitespace between columns
+            	
+            	if(fileType.equals(y)) 
+            	{ line = line.replace(x + " ", x);  } //removes leading whitespace between columns
+            	
+            	else {line = line.replace(", " , ",");}
+            	 
             	line = replaceCommas(line);
                 
             	List<String> columns = Arrays.asList(line.split(delimiter, -1));           

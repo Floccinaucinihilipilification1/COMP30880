@@ -1,7 +1,7 @@
 public class Main {
 	
 	public static void main(String[] args) {
-		ProjectListGenerator Proj = new ProjectListGenerator("src/Miskatonic Staff Members.csv");
+		ProjectListGenerator Proj = new ProjectListGenerator("src/Miskatonic Staff Members.txt");
 		StudentGenerator Pref = new StudentGenerator("src/names.csv");
 		
 		Proj.generateProjectList("src/ProjectList60.csv", 30);
