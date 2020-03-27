@@ -20,7 +20,7 @@ public class Readit {
 				Scanner sc = new Scanner(System.in);
 				System.out.print("Enter the CSV/TSV file name you want to read. :");
 				char input = sc.next().charAt(0);
-				//now have to read the file name
+				//now have to read the file name if it is CSV/TSV
 		
 				
 				//if statement for csv
