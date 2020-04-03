@@ -5,11 +5,11 @@ public class Student {
 	
 	String name;
 	String StudentNumber;
-	List<Project> projects;
+	List<String> projects;
 	String Stream;
 
 	//constructor
-	Student(String name,String StudentNumber, List<Project> projects,  String Stream) {
+	Student(String name,String StudentNumber, List<String> projects,  String Stream) {
 		this.name = name;
 		this.StudentNumber = StudentNumber;
 		this.projects = projects;
@@ -22,19 +22,19 @@ public class Student {
 	//getters
 	public String getName() { return name; }
 	public String getStudentNumber() {return StudentNumber;}
-	public List<Project> getProjects() { return projects; }
+	public List<String> getProjects() { return projects; }
 	public String getStream() { return Stream; }
 	
 	//setters
 	public void setName(String name) { this.name = name; }
 	public void setStudentNumber(String StudentNumber) {this.StudentNumber = StudentNumber;}
-	public void setProjects(List<Project> projects) { this.projects = projects; }
+	public void setProjects(List<String> projects) { this.projects = projects; }
 	public void setStream(String Stream) { this.Stream = Stream; }
 	
 	private String projectsString() {
 		String myString = "";
 		for (int i=0; i<projects.size(); i++) {
-			myString = myString + "," + projects.get(i).getProject();
+			myString = myString + "," + projects.get(i);
 		}
 		return myString.substring(1);
 	}
