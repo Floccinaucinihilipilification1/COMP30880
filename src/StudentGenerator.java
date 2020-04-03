@@ -42,7 +42,7 @@ public class StudentGenerator {
             	stream = "CS"; 
         		workingProjectList = csProjects.subList(0, csProjects.size());
             }
-        	List<Project> studentProjects = selectProjects(workingProjectList);
+        	List<String> studentProjects = selectProjects(workingProjectList);
         	int nameIndex = r.nextInt(names.size());
         	String name = names.get(nameIndex).getName();
         	String ID = names.get(nameIndex).getID();
@@ -104,25 +104,25 @@ public class StudentGenerator {
 		} 
      }
      
-     List<Project> selectProjects(List<Project> projects) {
+     List<String> selectProjects(List<Project> projects) {
     	 Random r = new Random();
-    	 List<Project> myProjects = new LinkedList<Project>();
+    	 List<String> myProjects = new LinkedList<String>();
     	 int deviations = projects.size()/3;
     	 for (int i=0; i<10; i++) {
     		 int deviation = r.nextInt(99);
     		 if  (deviation < 68) {
     			 int index = r.nextInt(deviations);
-    			 if(!myProjects.contains(projects.get(index))) myProjects.add(projects.get(index));
+    			 if(!myProjects.contains(projects.get(index).getProject())) myProjects.add(projects.get(index).getProject());
     			 else i--;
     		 }
     		 if  (67 < deviation && deviation < 95) {
     			 int index = r.nextInt(deviations)+deviations;
-    			 if(!myProjects.contains(projects.get(index))) myProjects.add(projects.get(index));
+    			 if(!myProjects.contains(projects.get(index).getProject())) myProjects.add(projects.get(index).getProject());
     			 else i--;
     		 } 
     		 if  (94 < deviation) {
     			 int index = r.nextInt(deviations)+deviations*2;
-    			 if(!myProjects.contains(projects.get(index))) myProjects.add(projects.get(index));
+    			 if(!myProjects.contains(projects.get(index).getProject())) myProjects.add(projects.get(index).getProject());
     			 else i--;
     		 } 
     	 }

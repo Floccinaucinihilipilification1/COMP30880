@@ -24,28 +24,25 @@ public class Readit {
 		
 				
 				//if statement for csv
-		         BufferedReader in = new BufferedReader(new FileReader("src/Filename.csv"));
-		         String line;
-		         while ((line = in.readLine()) != null) {
-		              String[] fields = line.split(",");
+		         BufferedReader inCSV = new BufferedReader(new FileReader("src/Filename.csv"));
+		         String lineCSV;
+		         while ((lineCSV = inCSV.readLine()) != null) {
+		              String[] fields = lineCSV.split(",");
 		           System.out.println(Arrays.toString(fields));
 		           
 		          }
 		         
 		         //else statement for tsv
-		         BufferedReader in = new BufferedReader(new FileReader("src/Filename.tsv"));
-		         String line;
-		         while ((line = in.readLine()) != null) {
-		              String[] fields = line.split("\t");
+		         BufferedReader inTSV = new BufferedReader(new FileReader("src/Filename.tsv"));
+		         String lineTSV;
+		         while ((lineTSV = inTSV.readLine()) != null) {
+		              String[] fields = lineTSV.split("\t");
 		           System.out.println(Arrays.toString(fields));
 		           
 		          }
-		         
-		      
-		          
-		          
-		          in.close();
-		          
+   		          
+		          inCSV.close();
+		          inTSV.close();
 		          
 		}
 
