@@ -152,15 +152,31 @@ public class ProjectListGenerator {
     }
 
     private void  generateStaffMembers() {
-    	String delimiter = ",";
+    	String x = "";
+    	String y = "csv";
+    	String s = inputFile;
+    	String fileType = s.substring(s.length() - 3);
+    	if(fileType.equals(y)) 
+    	{ x = "," ;   }
+    	
+    	else {x ="\t";}
+    	
+    	String delimiter = x;
 		String line;
 		staffMembers = new LinkedList<StaffMember>();
 		BufferedReader br = null;
+		
         try {
         	br = new BufferedReader(new FileReader(inputFile));
         	br.readLine(); //initial readLine() so not to include first line (column names) in loop 
             while((line = br.readLine()) != null){
-            	line = line.replace(", ", ","); //removes leading whitespace between columns
+            	
+            	if(fileType.equals(y)) 
+            	{ line = line.replace(x + " ", x);  } //removes leading whitespace between columns
+            	
+            	else {line = line.replace(", " , ",");}
+            	
+            	
             	line = replaceCommas(line);
                 
             	List<String> columns = Arrays.asList(line.split(delimiter, -1));           

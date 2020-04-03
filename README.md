@@ -5,6 +5,8 @@ Team Pah tail
 -Donnchadh Robinson (16742991)
 -Michael Bradley (16407672)
 
+Task1:
+
 Michael Bradley, ProjectListGenerator.java: 
 The ProjectListGenerator class works by first creating a list of StaffMember instances using the info from the rows of Miskatonic Staff Members.csv.
 It then proposes from those staffMembers a list of random Project instances of size n, where each project has a unique staffMember/Supervisor.
@@ -32,4 +34,19 @@ The first third of the list is 68% likely to be chosen.
 The second third is 27% likely to be chosen.
 The third list is 5% likey to be chosen.
 This will create the standard deviation in the preference lists of the students. 
+
+Task2:
+We took in the information from the files and used an
+if statement to detect if a csv or tsv file was being read in 
+and changed the delimiter accordingly. This information was then
+stored in lists for further use. We added code to account for things
+like extra white spaces, comma's within the text for csv's and similar 
+situations. 
+
+We tested the code using a varity of files with a few different errors.
+Including files missing information and files with extra unwanted characters.
+
+Task3:
+
+
 
