@@ -10,15 +10,15 @@ public class SimulatedAnnealing {
 		for (int i=0; i<candidateSolution.getSize(); i++ ) {
 			String project = candidateSolution.getSolutionAt(i);
 			int projectRank = candidateSolution.getSolutionRankAt(i);
-			
 			//hard constraints (return 0 for hard constraints)
-			if (projectRank < 0 || 9 < projectRank) return 0; //hard constraint if students projectRank is greater than his 10th choice
+			//With the way the project is designed it is impossible for a student to have more than 1 assigned project so the hard constraint for more than one project is unnecessary. 
+			if (projectRank < 0 || 9 < projectRank) return 0; //hard constraint if students projectRank is greater than their 10th choice
 			if (projects.contains(project)) return 0;  //hard constraint if 2 students have same project
-			
 			projects.add(project);
 			
 			//soft constraints
-			fitness += 10-projectRank; //soft constraint where fitness increases based on how high (numerically low) a projectRank is
+			fitness -= 10-projectRank; //soft constraint where fitness increases based on how high (numerically low) a projectRank is
+			
 		} 
 		
 		return fitness;
@@ -37,7 +37,7 @@ public class SimulatedAnnealing {
 		
 		candidateSolution.setSolutionRankAt(studentIndex, newRank);
 		
-		System.out.println("Student: " + candidateSolution.getStudentAt(studentIndex).getName() + ", Rank changed from: " + oldRank + " to: " + newRank);
+		System.out.println("Student: " + candidateSolution.getStudentAt(studentIndex).getName() + ", Rank changed from: " + oldRank + " to: " + newRank + "\n");
 		
 	}
 

@@ -14,16 +14,20 @@ public class CandidateSolutionGenerator {
 		generateStudents(filename);
 	}
 	
-	CandidateSolution generate() {
+	CandidateSolution generate(Student GPA) {
 		Random rand = new Random();
 		List<Integer> solutions = new LinkedList<Integer>();
 		for (int i=0; i<students.size(); i++) {
-			solutions.add(rand.nextInt(10));
+			solutions.add(rand.nextInt(10));                         
+			
 		}
+
+		
+		
 		return new CandidateSolution(students, solutions);
 	}
 	
-	
+
 	void generateStudents(String filename) {
    	 try(BufferedReader br = new BufferedReader(new FileReader(filename))) {
    		 String line;

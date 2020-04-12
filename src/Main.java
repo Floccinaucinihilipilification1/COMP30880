@@ -1,7 +1,15 @@
+import java.util.Scanner;
+import java.*;
+import java.util.*;
+
+
 public class Main {
+	static CandidateSolutionGenerator cand = new CandidateSolutionGenerator("src/PreferenceList60.csv");
 
 		
 		public static void main(String[] args) {
+			
+			
 			ProjectListGenerator Proj = new ProjectListGenerator("src/Miskatonic Staff Members.csv");
 			StudentGenerator Pref = new StudentGenerator("src/names.csv");
 			
@@ -18,9 +26,112 @@ public class Main {
 			Pref.generateStudentPrefList("src/PreferenceList500.csv", "src/ProjectList500.csv", 500);
 
 			
-		CandidateSolutionGenerator cand = new CandidateSolutionGenerator("src/PreferenceList60.csv");
-		CandidateSolution solution = cand.generate();
-		System.out.println("\n" + solution.toString());
+			CandidateSolution solution = null;
+			 System.out.println("Initial candidate solution generated \n");
+			 
+			 solution = cand.generate(null);
+			
+			
+		 menu(solution);
 		
 		}
-}
+		
+		
+		
+		
+		
+		 public static void menu(CandidateSolution solution) 
+		 {   
+			 
+
+			 
+			 
+			 Scanner choice = new Scanner(System.in);
+			 			 int x = 0;
+			 System.out.println("Please choose an option from the menu \n"
+					 +	"Enter 1 to generate a new candidate solution \n"
+					 +   "Enter 2 to print out the candidate solution \n"
+					 +   "Enter 3 to calculate the fitness and energy of that solution \n"
+					 +    "Enter 4 to make a random change to the solution \n"
+					 +    "Enter 0 exit \n"
+					 );
+		
+	
+		            try {
+						x = choice.nextInt();
+					} catch (Exception e) {
+					 System.out.println("Incorrect input detected. Please enter the correct input");
+						
+					}
+			 
+			 
+			 switch(x) 
+			 {
+			 
+			 case 1: 
+					
+				   solution = cand.generate(null);
+					menu(solution);
+					break;
+				
+			 case 2:
+					
+					System.out.println("\n" + solution.toString());	
+					menu(solution);
+					break;
+				
+				
+			case 3:
+					
+					System.out.println("\n" + "the Fitness of the solution is " + SimulatedAnnealing.Fitness(solution));
+					System.out.println("\n" + "the Energy of the solution is " + SimulatedAnnealing.Energy(solution));
+					menu(solution);
+					break;
+				
+			case 4:
+
+					
+					System.out.println("\n" + "the Energy of the solution is " + SimulatedAnnealing.Energy(solution));
+					SimulatedAnnealing.changeRandom(solution);
+					menu(solution);
+                    break;
+				
+		 case 0:
+				{
+					
+				System.exit(0);	
+				}
+				
+				default: 
+				System.out.println("Please choose a valid option from the menu \n");
+				menu(solution);
+				
+				
+				}
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+				
+			
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		 
+}}
+
+  
+ 

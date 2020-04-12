@@ -5,7 +5,6 @@ public class CandidateSolution {
 	//student in students index i has solution in solutions index i
 	List<Student> students;	
 	List<Integer> solutions; //stored as integer corresponding with an index in students projects list
-	
 	//constructor
 	CandidateSolution(List<Student> students, List<Integer> solutions) {
 		this.students = students;
