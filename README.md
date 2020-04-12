@@ -46,7 +46,11 @@ situations.
 We tested the code using a varity of files with a few different errors.
 Including files missing information and files with extra unwanted characters.
 
-Task3:
+Task4:
+SimulatedAnnealing class contains three static methods, Fitness(), Energy(), and ChangeRandom().
+Fitness calculates the fitness of a CandidateSolution argument based on soft and hard constraints.
+Energy returns the inverse of Fitness (or infinity if fitness is 0).
+ChangeRamdom takes a CandidateSolution as an argument and randomly changes one students project to another one from their preference list. 
 
 
 

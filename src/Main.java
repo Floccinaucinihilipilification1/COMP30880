@@ -20,7 +20,7 @@ public class Main {
 			
 		CandidateSolutionGenerator cand = new CandidateSolutionGenerator("src/PreferenceList60.csv");
 		CandidateSolution solution = cand.generate();
-		
 		System.out.println("\n" + solution.toString());
-	
-}}
+		
+		}
+}

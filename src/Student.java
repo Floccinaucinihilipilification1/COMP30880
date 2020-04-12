@@ -1,5 +1,6 @@
 
 import java.util.List;
+import java.util.Random;
 
 public class Student {
 	
@@ -7,13 +8,15 @@ public class Student {
 	String StudentNumber;
 	List<String> projects;
 	String Stream;
-
+	double GPA;
 	//constructor
 	Student(String name,String StudentNumber, List<String> projects,  String Stream) {
 		this.name = name;
 		this.StudentNumber = StudentNumber;
 		this.projects = projects;
 		this.Stream = Stream;
+		Random rand = new Random();
+		this.GPA = rand.nextInt(420);
 	}
 	
 	//Gets a random entry from projects list and it's stream and returns it

@@ -13,9 +13,12 @@ public class CandidateSolution {
 	}
 	
 	//getters
+	public List<Student> getStudents() { return students; }
+	public List<Integer> getSolutions() { return solutions; }
 	public Student getStudentAt(int index) { return students.get(index); }
 	public String getSolutionAt(int index) { return students.get(index).getProjects().get(solutions.get(index)); }
 	public int getSolutionRankAt(int index) { return solutions.get(index); }
+	public int getSize() { return solutions.size(); }
 	public String toString() {
 		String myString = "";
 		for (int i=0; i<students.size(); i++) {
