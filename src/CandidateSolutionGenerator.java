@@ -14,20 +14,28 @@ public class CandidateSolutionGenerator {
 		generateStudents(filename);
 	}
 	
-	CandidateSolution generate(Student GPA) {
+	CandidateSolution generate() {
 		Random rand = new Random();
 		List<Integer> solutions = new LinkedList<Integer>();
+		List<String> allProjects = new LinkedList<String>(); //projects that have been used for solutions (check to prevent duplicates)
 		for (int i=0; i<students.size(); i++) {
-			solutions.add(rand.nextInt(10));                         
+			List<String> projects = students.get(i).getProjects();
+			List<String> usableProjects = new LinkedList<String>(); //projects for student i that have not yet been used 
+			usableProjects.addAll(projects);
+			//removes already used solutions from usableProjects
+			for (int j=0; j<projects.size(); j++) {
+				if (allProjects.contains(projects.get(j))) usableProjects.remove(projects.get(j)); 
+			}
 			
+			String project = usableProjects.get(rand.nextInt(usableProjects.size()));			
+			int projectRank = projects.indexOf(project); //assigns rank as index of project which was randomly selected from usable projects.
+			allProjects.add(project);
+			solutions.add(projectRank);
 		}
-
-		
-		
 		return new CandidateSolution(students, solutions);
 	}
 	
-
+	
 	void generateStudents(String filename) {
    	 try(BufferedReader br = new BufferedReader(new FileReader(filename))) {
    		 String line;
