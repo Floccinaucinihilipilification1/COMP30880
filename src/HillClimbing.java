@@ -20,7 +20,7 @@ public class HillClimbing {
 		double z = SimulatedAnnealing.Energy(candidateSolution);
 		
 		
-		if(z < y) {x--;}
+		if(z < y) {x =0;}
 		
 		if(z >= y) 
 		{
