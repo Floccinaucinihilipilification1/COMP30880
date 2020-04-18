@@ -29,7 +29,7 @@ public class Main {
 			CandidateSolution solution = null;
 			 System.out.println("Initial candidate solution generated \n");
 			 
-			 solution = cand.generate(null);
+			 solution = cand.generate();
 			
 			
 		 menu(solution);
@@ -47,12 +47,14 @@ public class Main {
 			 
 			 
 			 Scanner choice = new Scanner(System.in);
+			 
 			 			 int x = 0;
 			 System.out.println("Please choose an option from the menu \n"
 					 +	"Enter 1 to generate a new candidate solution \n"
 					 +   "Enter 2 to print out the candidate solution \n"
 					 +   "Enter 3 to calculate the fitness and energy of that solution \n"
 					 +    "Enter 4 to make a random change to the solution \n"
+					 +    "Enter 5 to use hill climbing to improve the solution \n"
 					 +    "Enter 0 exit \n"
 					 );
 		
@@ -70,7 +72,7 @@ public class Main {
 			 
 			 case 1: 
 					
-				   solution = cand.generate(null);
+				   solution = cand.generate();
 					menu(solution);
 					break;
 				
@@ -95,6 +97,11 @@ public class Main {
 					SimulatedAnnealing.changeRandom(solution);
 					menu(solution);
                     break;
+                    
+			case 5: 
+			        HillClimbing.climbing(solution);
+			        menu(solution);
+				    break;
 				
 		 case 0:
 				{

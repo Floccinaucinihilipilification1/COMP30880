@@ -46,6 +46,12 @@ situations.
 We tested the code using a varity of files with a few different errors.
 Including files missing information and files with extra unwanted characters.
 
+Task3:
+We used the preference list generated in the previous task to create our solution.
+Lists were used to organize and store this information.
+The solutions were stored as an integer that relates to an index stored in the project lists. 
+
+
 Task4:
 SimulatedAnnealing class contains three static methods, Fitness(), Energy(), and ChangeRandom().
 Fitness calculates the fitness of a CandidateSolution argument based on soft and hard constraints. Given that it is still possible for a two students to be assigned the same project and likely to happen the energy returned is often 0. 

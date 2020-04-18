@@ -13,7 +13,7 @@ public class SimulatedAnnealing {
 			//hard constraints (return 0 for hard constraints)
 			//With the way the project is designed it is impossible for a student to have more than 1 assigned project so the hard constraint for more than one project is unnecessary. 
 			if (projectRank < 0 || 9 < projectRank) return 0; //hard constraint if students projectRank is greater than their 10th choice
-			if (projects.contains(project)) return 0;  //hard constraint if 2 students have same project
+			if (projects.contains(project)) return fitness -= -100;  //hard constraint if 2 students have same project
 			projects.add(project);
 			
 			//soft constraints
