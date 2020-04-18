@@ -6,7 +6,7 @@ public class HillClimbing {
 	{
 	int x = 0;
 		
-	while (x < 10) 
+	while (x < 12) 
 	{	
 		
 		double y = SimulatedAnnealing.Energy(candidateSolution);
