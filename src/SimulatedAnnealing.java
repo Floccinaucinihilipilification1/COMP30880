@@ -5,6 +5,24 @@ import java.util.Random;
 public class SimulatedAnnealing {
 	public static double Fitness(CandidateSolution candidateSolution) {
 		
+	/*
+	for(long i = 0; i < projectRank; i++){
+	double t = (double)i / projectRank = (1 - t)*1000; //set initialtemp as 1000
+	}
+	
+	 private static double boltzmann(double x) {
+		if (x < -1022)  // Underflow
+			return 0;
+		if (x >= 1024)  // Overflow
+			return Double.POSITIVE_INFINITY;
+		double y = Math.floor(x);
+		double z = x - y;  // In the range [0.0, 1.0)
+		double u = Double.longBitsToDouble((long)((int)y + 1023) << 52);  // Equal to 2^floor(x)
+		double v = ((0.07901988694851840505 * z + 0.22412622970387342355) * z + 0.69683883597650776993) * z + 0.99981190792895544660;
+		return u * v;
+	}
+
+	*/
 		double fitness = 0;
 		List<String> projects = new LinkedList<String>();
 		for (int i=0; i<candidateSolution.getSize(); i++ ) {
