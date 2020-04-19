@@ -7,8 +7,8 @@ public class SimulatedAnnealing {
 		
 
 
-
-	
+         
+	    double GPA = Student.getGPA();
 		double fitness = 0;
 		List<String> projects = new LinkedList<String>();
 		for (int i=0; i<candidateSolution.getSize(); i++ ) {
@@ -21,7 +21,7 @@ public class SimulatedAnnealing {
 			projects.add(project);
 			
 			//soft constraints
-			fitness -= 10-projectRank; //soft constraint where fitness increases based on how high (numerically low) a projectRank is
+			fitness -= 10-projectRank * (GPA/4.2); //soft constraint where fitness increases based on how high (numerically low) a projectRank is
 			
 		} 
 		

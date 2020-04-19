@@ -6,7 +6,7 @@ public class HillClimbing {
 	{
 	int x = 0;
 		
-	while (x < 100)  // run until 100 worse results are obtained
+	while (x < 100)  // run until 100 worse results are obtained in a row
 	{	
 		
 		double y = SimulatedAnnealing.Energy(candidateSolution);
@@ -25,8 +25,8 @@ public class HillClimbing {
 		if(z >= y) 
 		{
 			candidateSolution.setSolutionRankAt(studentIndex, oldRank); // revert worse choices.	
-			x++;
 			System.out.println(x);
+			x++;
 		}
 		
 		

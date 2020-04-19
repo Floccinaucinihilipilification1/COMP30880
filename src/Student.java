@@ -8,7 +8,7 @@ public class Student {
 	String StudentNumber;
 	List<String> projects;
 	String Stream;
-	 double GPA;
+	 static double GPA;
 	//constructor
 	Student(String name,String StudentNumber, List<String> projects,  String Stream) {
 		this.name = name;
@@ -27,7 +27,7 @@ public class Student {
 	public String getStudentNumber() {return StudentNumber;}
 	public List<String> getProjects() { return projects; }
 	public String getStream() { return Stream; }
-	public  double getGPA() {return GPA;}
+	public static  double getGPA() {return GPA;}
 	
 	//setters
 	public void setName(String name) { this.name = name; }
