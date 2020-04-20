@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.*;
 import java.util.*;
 
 
@@ -99,7 +98,7 @@ public class Main {
                     break;
                     
 			case 5: 
-			        HillClimbing.climbing(solution);
+			        HillClimbingWithSA.climbing(solution);
 			        menu(solution);
 				    break;
 				
