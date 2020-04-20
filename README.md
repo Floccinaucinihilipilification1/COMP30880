@@ -61,4 +61,4 @@ ChangeRamdom takes a CandidateSolution as an argument and randomly changes one s
 A basic menu was added to allow easy navigation of the program and to allow the solution to be worked on without generating a new solution each time. 
 
 
-
+Task 5: Simulated Annealing was implemented in the HillClimbingWithSA class (built from HillClimbing class), the initial temperature of 100 was chosen with a cooling schedule that cools by 10 for each random change that is accepted. This cooling schedule was chosen as from testing it gave the best results.
