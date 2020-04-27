@@ -63,6 +63,7 @@ public class GeneticAlgorithm {
 	father = population.get(rand.nextInt(r));
 		     }
 		
+		
 		t = ra.nextInt(100);
 	if(t >= 98) {mother = population.get(rand.nextInt(r));}
 		else{
