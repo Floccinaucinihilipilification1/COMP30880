@@ -93,9 +93,8 @@ public class Main {
 				
 			case 4:
 
-					
-					System.out.println("\n" + "the Energy of the solution is " + SimulatedAnnealing.Energy(solution));
-					SimulatedAnnealing.changeRandom(solution);
+				  SimulatedAnnealing.changeRandom(solution);
+				  System.out.println("\n" + "the Energy of the solution is " + SimulatedAnnealing.Energy(solution));
 					menu(solution);
                     break;
                  
