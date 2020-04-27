@@ -18,7 +18,7 @@ public class GeneticAlgorithm {
 	CandidateSolution solution = null;
 
 	
-	for(i = 0 ; i < 3; i++ ) {
+	for(i = 0 ; i < 100000; i++ ) {
 	solution = cand.generate();
 	y = SimulatedAnnealing.Fitness(solution);
 	solution.setFitness(y);
@@ -41,6 +41,8 @@ public class GeneticAlgorithm {
 	
 	int h = 0;	
 	while (h < 1000) {
+	 
+		double  m = SimulatedAnnealing.Fitness(population.get(0));	
 		
 	int size = population.size();
 	double e = size * 10 / 100; 
@@ -76,9 +78,17 @@ public class GeneticAlgorithm {
 	 Collections.reverse(population);
 	
     Culling.culling(population);
-     h++;
- 
-	}
+     
+    
+    double  u = SimulatedAnnealing.Fitness(population.get(0));
+    
+    if(m == u) {
+    h++;
+     } 
+    
+    if(u > m) { h = 0;}
+    
+     }
 	
 	 Collections.sort(population);
 	 Collections.reverse(population);
