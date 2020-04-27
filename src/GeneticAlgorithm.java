@@ -52,8 +52,22 @@ public class GeneticAlgorithm {
 	int p = 0;
 	
 	while( p < r) {
-	CandidateSolution father = population.get(rand.nextInt(r));
-	CandidateSolution mother = population.get(rand.nextInt(r));
+		CandidateSolution father = null;
+		CandidateSolution mother = null;
+		
+		Random ra = new Random();
+		int t = ra.nextInt(100);
+		
+		if(t >= 98) {father = population.get(rand.nextInt(population.size()));}
+		else {	
+	father = population.get(rand.nextInt(r));
+		     }
+		
+		t = ra.nextInt(100);
+	if(t >= 98) {mother = population.get(rand.nextInt(r));}
+		else{
+	mother = population.get(rand.nextInt(r));
+		}
 	CandidateSolution offspring = GAMate.mate(father, mother);
 	
 	Random ran = new Random();
