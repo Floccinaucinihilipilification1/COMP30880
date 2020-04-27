@@ -22,6 +22,7 @@ public class GeneticAlgorithm {
 	solution = cand.generate();
 	y = SimulatedAnnealing.Fitness(solution);
 	solution.setFitness(y);
+	
 	population.add(solution);
 	
 
