@@ -23,9 +23,9 @@ public class CandidateSolutionGenerator {
 			List<String> usableProjects = new LinkedList<String>(); //projects for student i that have not yet been used 
 			usableProjects.addAll(projects);
 			//removes already used solutions from usableProjects
-			for (int j=0; j<projects.size(); j++) {
-				if (allProjects.contains(projects.get(j))) usableProjects.remove(projects.get(j)); 
-			}
+			//for (int j=0; j<projects.size(); j++) {
+				//if (allProjects.contains(projects.get(j))) usableProjects.remove(projects.get(j)); 
+			//}
 			
 			String project = usableProjects.get(rand.nextInt(usableProjects.size()));			
 			int projectRank = projects.indexOf(project); //assigns rank as index of project which was randomly selected from usable projects.
