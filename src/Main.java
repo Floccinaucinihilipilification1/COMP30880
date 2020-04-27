@@ -54,6 +54,8 @@ public class Main {
 					 +   "Enter 3 to calculate the fitness and energy of that solution \n"
 					 +    "Enter 4 to make a random change to the solution \n"
 					 +    "Enter 5 to use hill climbing to improve the solution \n"
+					 +    "Enter 6 to use Simulated Annealing to improve the solution \n"
+					 +    "Enter 7 to use Genetic Algorithms to improve the solution \n"
 					 +    "Enter 0 exit \n"
 					 );
 		
@@ -70,7 +72,7 @@ public class Main {
 			 {
 			 
 			 case 1: 
-					
+				   solution = null;
 				   solution = cand.generate();
 					menu(solution);
 					break;
@@ -96,12 +98,22 @@ public class Main {
 					SimulatedAnnealing.changeRandom(solution);
 					menu(solution);
                     break;
-                    
-			case 5: 
+                 
+			case 5:        
+				    HillClimbing.climbing(solution);
+				    menu(solution);
+                    break;
+				
+				
+			case 6: 
 			        HillClimbingWithSA.climbing(solution);
 			        menu(solution);
 				    break;
 				
+			case 7:
+				    GeneticAlgorithm.GeneticAlgorithmGeneration(cand);
+				    menu(solution);
+				    break;
 		 case 0:
 				{
 					
