@@ -10,9 +10,9 @@ public class gui extends JFrame{
 	private ImageIcon iconSave;
 	private ImageIcon iconExit;
 	private JMenu fileMenu;
-	private JMenuItem openMenuItem;
-	private JMenuItem saveMenuItem;
-	private JMenuItem exitMenuItem;
+	private JMenuItem openMenu;
+	private JMenuItem saveMenu;
+	private JMenuItem exitMenu;
 	
 	public gui() {
 
@@ -38,23 +38,23 @@ public class gui extends JFrame{
 	        fileMenu = new JMenu("File");
 	        fileMenu.setMnemonic(KeyEvent.VK_F);
 
-	        openMenuItem = new JMenuItem(new MenuItemAction("Open file", iconOpen,
+	        openMenu = new JMenuItem(new MenuItemAction("Open file", iconOpen,
 	                KeyEvent.VK_O));
 	        //TODO: use JfileChooser method to choose data file for open data
 
-	        saveMenuItem = new JMenuItem(new MenuItemAction("Save Result", iconSave,
+	        saveMenu = new JMenuItem(new MenuItemAction("Save Result", iconSave,
 	                KeyEvent.VK_S));
 	        //TODO: use JFileChooser method to save data file
 
-	        exitMenuItem = new JMenuItem("Exit Program", iconExit);
-	        exitMenuItem.setMnemonic(KeyEvent.VK_C);
-	        exitMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, InputEvent.CTRL_DOWN_MASK));
-	        exitMenuItem.addActionListener((event) -> System.exit(0));
+	        exitMenu = new JMenuItem("Exit Program", iconExit);
+	        exitMenu.setMnemonic(KeyEvent.VK_C);
+	        exitMenu.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, InputEvent.CTRL_DOWN_MASK));
+	        exitMenu.addActionListener((event) -> System.exit(0));
 
-	        fileMenu.add(openMenuItem);
-	        fileMenu.add(saveMenuItem);
+	        fileMenu.add(openMenu);
+	        fileMenu.add(saveMenu);
 	        fileMenu.addSeparator();
-	        fileMenu.add(exitMenuItem);
+	        fileMenu.add(exitMenu);
 
 	        menuBar.add(fileMenu);
 
