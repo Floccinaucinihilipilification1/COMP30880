@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 
@@ -40,11 +41,20 @@ public class gui extends JFrame{
 
 	        openMenu = new JMenuItem(new MenuItemAction("Open file", iconOpen,
 	                KeyEvent.VK_O));
-	        //TODO: use JfileChooser method to choose data file for open data
+	        openMenu.addActionListener(new ActionListener() {
+	            @Override
+	            public void actionPerformed(ActionEvent e) {
+	                JFileChooser fileChooser = new JFileChooser(); //This method will search all type of files, not only CSV/TSV
+	                switch (fileChooser.showOpenDialog(menuBar)) {
+	                    case JFileChooser.APPROVE_OPTION:
+	                        break;
+	                }
+	            }
+	        });
 
 	        saveMenu = new JMenuItem(new MenuItemAction("Save Result", iconSave,
 	                KeyEvent.VK_S));
-	        //TODO: use JFileChooser method to save data file
+	        //TODO: use JFileChooser method to save data file OR just make auto-save when we press save button.
 
 	        exitMenu = new JMenuItem("Exit Program", iconExit);
 	        exitMenu.setMnemonic(KeyEvent.VK_C);
