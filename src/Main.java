@@ -105,12 +105,14 @@ public class Main {
 				
 				
 			case 6: 
-			        HillClimbingWithSA.climbing(solution);
+			        CandidateSolution mySolutionSa = HillClimbingWithSA.climbing(solution);
+			        mySolutionSa.saveSolution("C:\\Users\\Public\\OptimumSolution.csv");
 			        menu(solution);
 				    break;
 				
 			case 7:
-				    GeneticAlgorithm.GeneticAlgorithmGeneration(cand);
+				    CandidateSolution mySolutionGa = GeneticAlgorithm.GeneticAlgorithmGeneration(cand);
+				    mySolutionGa.saveSolution("C:\\Users\\Public\\OptimumSolution.csv");
 				    menu(solution);
 				    break;
 		 case 0:

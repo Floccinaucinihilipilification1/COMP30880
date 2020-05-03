@@ -1,3 +1,10 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 public class CandidateSolution implements Comparable<CandidateSolution> {
@@ -29,7 +36,18 @@ public class CandidateSolution implements Comparable<CandidateSolution> {
 		}
 		return myString;
 	}
-		
+	
+	public void saveSolution(String dir) {
+		try (BufferedWriter bw =
+                new BufferedWriter(new FileWriter(dir))) {
+		 for (int i=0; i<students.size(); i++) {
+			 bw.write(students.get(i).getName() + ", " + students.get(i).getProjects().get(solutions.get(i)));
+			 bw.newLine();
+		 }
+	 } catch (IOException e) {
+		e.printStackTrace();
+	}
+	}
 	//setters
 	public void setSolutionRankAt(int index, int rank) { solutions.set(index, rank); }
 	public void setFitness(Double fitness) { this.fitness = fitness; }

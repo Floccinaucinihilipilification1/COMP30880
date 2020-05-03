@@ -10,7 +10,7 @@ public class GeneticAlgorithm {
 
 	static List<CandidateSolution> population = new LinkedList<CandidateSolution>();
 	
-	public static void GeneticAlgorithmGeneration(CandidateSolutionGenerator cand) {
+	public static CandidateSolution GeneticAlgorithmGeneration(CandidateSolutionGenerator cand) {
 	Random rand = new Random();
 	int i ;
 	double y =0;
@@ -18,7 +18,7 @@ public class GeneticAlgorithm {
 	CandidateSolution solution = null;
 
 	
-	for(i = 0 ; i < 100000; i++ ) {
+	for(i = 0 ; i < 100; i++ ) {
 	solution = cand.generate();
 	y = SimulatedAnnealing.Fitness(solution);
 	solution.setFitness(y);
@@ -112,6 +112,7 @@ public class GeneticAlgorithm {
 	 System.out.println("\n" + "The optimum solution is" + "\n" + population.get(0));
 	 System.out.println("\n" + "The fitness of this solution is" + "\n" + l);
 	 
+	 return population.get(0);
 	
 	
 	

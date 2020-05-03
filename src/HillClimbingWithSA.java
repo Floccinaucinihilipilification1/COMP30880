@@ -1,7 +1,7 @@
 import java.util.Random;
 public class HillClimbingWithSA {
 
-	public static void climbing(CandidateSolution candidateSolution)
+	public static CandidateSolution climbing(CandidateSolution candidateSolution)
 	{
 	int x = 0;
 	double temp = 100;
@@ -54,6 +54,7 @@ public class HillClimbingWithSA {
 
 	
 	}
+	return candidateSolution;
 	
 	}
 	
