@@ -1,13 +1,20 @@
 import java.util.Scanner;
+
+import javax.swing.JFrame;
+
+import java.awt.EventQueue;
 import java.util.*;
 
 
 public class Main {
-	static CandidateSolutionGenerator cand = new CandidateSolutionGenerator("src/PreferenceList60.csv");
+	//static CandidateSolutionGenerator cand = new CandidateSolutionGenerator("src/PreferenceList60.csv");
 
-		
+
+	
 		public static void main(String[] args) {
-			
+	    
+	            JFrame UI = new gui();
+	            UI.setVisible(true);
 			
 			ProjectListGenerator Proj = new ProjectListGenerator("src/Miskatonic Staff Members.csv");
 			StudentGenerator Pref = new StudentGenerator("src/names.csv");
@@ -25,13 +32,13 @@ public class Main {
 			Pref.generateStudentPrefList("src/PreferenceList500.csv", "src/ProjectList500.csv", 500);
 
 			
-			CandidateSolution solution = null;
-			 System.out.println("Initial candidate solution generated \n");
+		//	CandidateSolution solution = null;
+		//	 System.out.println("Initial candidate solution generated \n");
 			 
-			 solution = cand.generate();
+		//	 solution = cand.generate();
 			
 			
-		 menu(solution);
+	//	 menu(solution);
 		
 		}
 		
@@ -39,7 +46,7 @@ public class Main {
 		
 		
 		
-		 public static void menu(CandidateSolution solution) 
+ /**		 public static void menu(CandidateSolution solution) 
 		 {   
 			 
 
@@ -134,7 +141,7 @@ public class Main {
 			 
 			 
 			 
-				
+				**/
 			
 
 
@@ -150,7 +157,7 @@ public class Main {
 	
 	
 		 
-}}
+} //}
 
   
  

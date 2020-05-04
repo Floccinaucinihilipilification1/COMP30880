@@ -112,6 +112,12 @@ public class GeneticAlgorithm {
 	 System.out.println("\n" + "The optimum solution is" + "\n" + population.get(0));
 	 System.out.println("\n" + "The fitness of this solution is" + "\n" + l);
 	 
+	 gui.ja.append("\n" + "The optimum solution is" + "\n" + population.get(0));
+	 gui.ja.append("\n" + "The fitness of this solution is" + "\n" + l);
+	 
+	
+	 
+	 
 	 return population.get(0);
 	
 	

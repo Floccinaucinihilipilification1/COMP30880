@@ -12,6 +12,11 @@ public class HillClimbing {
 		double y = SimulatedAnnealing.Energy(candidateSolution);
 		System.out.println("\n" + "The current fitness of the solution is " + SimulatedAnnealing.Fitness(candidateSolution));
 		System.out.println("\n" + "The current energy of the solution is" + SimulatedAnnealing.Energy(candidateSolution));
+		
+		gui.ja.append("\n" + "The current fitness of the solution is " + SimulatedAnnealing.Fitness(candidateSolution));
+		gui.ja.append("\n" + "The current energy of the solution is" + SimulatedAnnealing.Energy(candidateSolution));
+		
+		
 		Random rand = new Random();
 		int studentIndex = rand.nextInt(candidateSolution.getSize());
 		int newRank = rand.nextInt(10);
@@ -31,6 +36,8 @@ public class HillClimbing {
 		
 		
 		System.out.println("Student: " + candidateSolution.getStudentAt(studentIndex).getName() + ", Rank changed from: " + oldRank + " to: " + newRank + "\n");
+		gui.ja.append("Student: " + candidateSolution.getStudentAt(studentIndex).getName() + ", Rank changed from: " + oldRank + " to: " + newRank + "\n");
+		
 		
 	
 		

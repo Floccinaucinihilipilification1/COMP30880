@@ -42,7 +42,7 @@ public class SimulatedAnnealing {
 		candidateSolution.setSolutionRankAt(studentIndex, newRank);
 		
 		System.out.println("Student: " + candidateSolution.getStudentAt(studentIndex).getName() + ", Rank changed from: " + oldRank + " to: " + newRank + "\n");
-		
+		gui.ja.append("Student: " + candidateSolution.getStudentAt(studentIndex).getName() + ", Rank changed from: " + oldRank + " to: " + newRank + "\n");
 	}
 
 	

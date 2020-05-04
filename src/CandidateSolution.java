@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -37,9 +38,9 @@ public class CandidateSolution implements Comparable<CandidateSolution> {
 		return myString;
 	}
 	
-	public void saveSolution(String dir) {
+	public void saveSolution(String string) {
 		try (BufferedWriter bw =
-                new BufferedWriter(new FileWriter(dir))) {
+                new BufferedWriter(new FileWriter(string))) {
 		 for (int i=0; i<students.size(); i++) {
 			 bw.write(students.get(i).getName() + ", " + students.get(i).getProjects().get(solutions.get(i)));
 			 bw.newLine();
