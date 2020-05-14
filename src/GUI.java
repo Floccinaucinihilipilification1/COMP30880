@@ -298,7 +298,8 @@ public class GUI extends JFrame{
 	    
 	    public static void menuDisplay() 
 	    {
-	    	ja.append("\nPlease select a preference list and then choose an option from the menu \n"
+	    	ja.append("\nPlease load a preference list and then choose an option from the menu \n"
+	    			+ "The preference list should be in the csv format \n"
 					 +	"Enter 1 to generate a new candidate solution \n"
 					 +   "Enter 2 to print out the candidate solution \n"
 					 +   "Enter 3 to calculate the fitness and energy of that solution \n"
