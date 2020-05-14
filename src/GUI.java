@@ -4,6 +4,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.awt.BorderLayout;
+import java.awt.Font;
+import java.awt.FlowLayout;
 import java.io.BufferedReader;
 import java.awt.event.ItemEvent;
 import java.io.File;
@@ -24,13 +26,13 @@ public class GUI extends JFrame{
 	private JMenuItem exitMenu;
 	private JLabel statusBar;
 	static JPanel jp = new JPanel(new BorderLayout(20,20));
-	static JTextField jt = new JTextField("Enter your choice here", 60);
+	static JTextField jt = new JTextField("Enter your choice here",60);
+	static jt.setFont(new Font(Font.DIALOG,Font.ITALIC,16));
 	static JTextArea ja = new JTextArea(10, 10);
 	static File file;
 	static String input;
 	
-	//Finished: putting status bar
-	//TODO: smaller printing screen(nearly finished), change textarea to only printed screen(will not let type at printed screen)
+	//Finished: putting status bar, font
 	//TODO: put some frame color(Menubar, buttons).
 
 	
