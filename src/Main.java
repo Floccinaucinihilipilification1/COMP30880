@@ -14,7 +14,7 @@ import java.awt.event.ItemEvent;
 
 //Finished: putting status bar
 //TODO: smaller printing screen(nearly finished), change textarea to only printed screen(will not let type at printed screen)
-//TODO: put some frame color(Menubar, buttons)
+//TODO: put some frame color(Menubar, buttons), change the SA and GA variable for new GUI
 
 public class Main extends JFrame{
 	static String y = null;
