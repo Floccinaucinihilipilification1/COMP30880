@@ -42,7 +42,7 @@ public class GUI extends JFrame{
 		 
 	        MenuBar();
 	        setTitle("Call of Cthulu Project Management System");
-	        setSize(800, 800);
+	        setSize(1200, 800);
 	        setLocationRelativeTo(null);
 	        setDefaultCloseOperation(EXIT_ON_CLOSE);
 	        text(solution);
