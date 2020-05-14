@@ -9,10 +9,10 @@ public class GeneticAlgorithm {
  
 	static List<CandidateSolution> population = new LinkedList<CandidateSolution>();
 
-	public static CandidateSolution GeneticAlgorithmGeneration(CandidateSolutionGenerator cand, int populationSize) {
+	public static CandidateSolution GeneticAlgorithmGeneration(CandidateSolutionGenerator cand) {
 		Random rand = new Random();
 		CandidateSolution solution = null;
-		populationSize = 100;
+		int populationSize = 100;
 		for(int i = 0 ; i < populationSize; i++ ) {
 			solution = cand.generate();
 			double solutionFitness = SolutionChanger.Fitness(solution);
