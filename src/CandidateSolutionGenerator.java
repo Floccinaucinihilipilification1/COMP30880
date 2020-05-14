@@ -73,25 +73,28 @@ public class CandidateSolutionGenerator {
 				//remove all empty entries from columns
 				for (int i=0; i<columns.size(); i++) columns.removeAll(Collections.singleton(""));
 				
-				//if a student has less than 10 preferences we append more random preferences until they have 10
-				Random rand = new Random();
-				List<String> usableProjects = new LinkedList<String>();
-				usableProjects.addAll(randomProjects);
 				
-				while (columns.size() < 14) {	
-					//remove already used projects
-					for (int i=0; i<usableProjects.size(); i++) {
-						if (columns.contains(usableProjects.get(i))) usableProjects.remove(usableProjects.get(i)); 
+				if (columns.size() != 0) { 
+					//if a student has less than 10 preferences we append more random preferences until they have 10
+					Random rand = new Random();
+					List<String> usableProjects = new LinkedList<String>();
+					usableProjects.addAll(randomProjects);
+				
+					while (columns.size() < 14) {	
+						//remove already used projects
+						for (int i=0; i<usableProjects.size(); i++) {
+							if (columns.contains(usableProjects.get(i))) usableProjects.remove(usableProjects.get(i)); 
+						}
+						int randIndex = rand.nextInt(usableProjects.size());
+						columns.add(usableProjects.get(randIndex));
 					}
-					int randIndex = rand.nextInt(usableProjects.size());
-					columns.add(usableProjects.get(randIndex));
-				}
    			
-				for (int i=4; i<14; i++) {
-					projects.add(columns.get(i));
-				}
+					for (int i=4; i<14; i++) {
+						projects.add(columns.get(i));
+					}
 				
-				students.add(new Student(columns.get(0), columns.get(1), Double.parseDouble(columns.get(2)), projects, columns.get(3)));
+					students.add(new Student(columns.get(0), columns.get(1), Double.parseDouble(columns.get(2)), projects, columns.get(3)));
+				}
 			}
 			
 		} catch (IOException e1) {
