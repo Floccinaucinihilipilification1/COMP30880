@@ -29,7 +29,7 @@ public class SolutionChanger {
 		else return Fitness(candidateSolution)*-1;
 	}
 	
-	public static void changeRandom(CandidateSolution candidateSolution) {
+	public static String changeRandom(CandidateSolution candidateSolution) {
 		Random rand = new Random();
 		int studentIndex = rand.nextInt(candidateSolution.getSize());
 		int newRank = rand.nextInt(10);
@@ -38,6 +38,7 @@ public class SolutionChanger {
 		candidateSolution.setSolutionRankAt(studentIndex, newRank);
 		System.out.println("Student: " + candidateSolution.getStudentAt(studentIndex).getName() + ", Rank changed from: " + oldRank + " to: " + newRank + "\n");
 		
+		return ("Student: " + candidateSolution.getStudentAt(studentIndex).getName() + ", Rank changed from: " + oldRank + " to: " + newRank);
 	}
 
 	
