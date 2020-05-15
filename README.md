@@ -147,6 +147,9 @@ Sprint 7 The workload was 40% Michael Bradley, 40% Donnchadh Robinson and 10% Do
 Sprint 8 The workload was 33% Michael Bradley, 33% Donnchadh Robinson and 33% Dongryul Jeong 
 No formal agreement was made on how the work should be distributed but it was presumed that
 in each sprint that a simliar anount of work would be contributed by each participant. This did not occure. 
- 
 
-
+Github for the project showing member submissions.
+https://github.com/Floccinaucinihilipilification1/COMP30880/graphs/contributors 
+LouisaFerre + Floccinaucinihilipilification1 = Donnchadh Robinson (16742991) 
+arcanass = Dongryul Jeong (15205766)
+mbradley97 = Michael Bradley (16407672) 
