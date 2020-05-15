@@ -62,7 +62,7 @@ public class GeneticAlgorithm {
 	
 	if (o >= 95) 
 	{
-	SolutionChanger.changeRandom(offspring);
+	GUI.ja.append(SolutionChanger.changeRandom(offspring));
 	}
 	
 	population.add(offspring);
@@ -99,7 +99,7 @@ public class GeneticAlgorithm {
 	 System.out.println("\n" + "The fitness of this solution is" + "\n" + l);
 	 
 	 return population.get(0);
-	
+	 
 	
 	
 	
@@ -154,6 +154,9 @@ public class GeneticAlgorithm {
 		CandidateSolution offSpring = new CandidateSolution(students, solutions);
 		
 		return offSpring;
+		
+		
+		
 	}
 	
 	public static void culling(List<CandidateSolution> population) {
@@ -171,7 +174,6 @@ public class GeneticAlgorithm {
 		
 		}
 
-	
 	
 
 }
