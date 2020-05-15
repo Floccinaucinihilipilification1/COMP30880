@@ -125,7 +125,7 @@ The resuls for GA were:
       
 
 The GUI was altered to remove the number based menu and to instead use a button based system.
-The code was also changed so that the relevant information for all of the operations would be printed to the text area.
+The code was also changed so that the relevant information for all of the operations would be printed to the text area. For SA/GA, it supports autosaving result.
 
 Requirements for running the java executable:
 The Java executable
