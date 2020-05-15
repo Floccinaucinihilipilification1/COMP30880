@@ -54,38 +54,30 @@ public class TestCases {
 			GeneticAlgorithm is tested by performing the GeneticAlgorithm.geneticAlgorithmGeneration() method with the same
 			input file but with different populations, the most optimal population is then used in the application.
 			
-			Note: we test no greater than population 1000 as a population any larger would not run in an acceptable time
+			Note: we test no greater than population 250 as a population any larger would not run in an acceptable time
 			RESULTS:
 			pop10 : 48.53333333333334
 			pop50 :48.53333333333334
 			pop100 :50.73333333333334
 			pop250 :50.73333333333334
-			pop500 : 76.07857142857142
-			pop1000 : 76.07857142857142
-			
-			From this we conclude 500 is the optimal population
+			From this we conclude 100 is the optimal population
 		 */
 		
 		double pop10 = 0;
 		double pop50 = 0;
 		double pop100 = 0;
 		double pop250 = 0;
-		double pop500 = 0;
-		double pop1000 = 0;
-	
+
 		pop10 += SolutionChanger.Fitness(GeneticAlgorithm.GeneticAlgorithmGeneration(candGen, 10) );
 		pop50 += SolutionChanger.Fitness(GeneticAlgorithm.GeneticAlgorithmGeneration(candGen, 50) );
 		pop100 += SolutionChanger.Fitness(GeneticAlgorithm.GeneticAlgorithmGeneration(candGen, 100) );
 		pop250 += SolutionChanger.Fitness(GeneticAlgorithm.GeneticAlgorithmGeneration(candGen, 250) );
-		pop500 += SolutionChanger.Fitness(GeneticAlgorithm.GeneticAlgorithmGeneration(candGen, 500) );
-		pop1000 += SolutionChanger.Fitness(GeneticAlgorithm.GeneticAlgorithmGeneration(candGen, 1000) );
 		
 		System.out.println("pop10 : " + pop10);
 		System.out.println("pop50 :" + pop50);
 		System.out.println("pop100 :" + pop100);
 		System.out.println("pop250 :" + pop250);
-		System.out.println("pop500 : " + pop500);
-		System.out.println("pop1000 : " + pop1000);
+
 	}
 	
 }
