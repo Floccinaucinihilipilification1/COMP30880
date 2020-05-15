@@ -25,11 +25,22 @@ public class GUI extends JFrame{
 	private JMenuItem openMenu;
 	private JMenuItem exitMenu;
 	private JLabel statusBar;
+	private JButton reg;
+	private JButton reg2;
+	private JButton reg3;
+	private JButton reg4;
+	private JButton reg5;
+	private JButton reg6;
+	private JButton reg7;
+	private JButton reg8;
+	private JButton reg9;
 	static JPanel jp = new JPanel(new BorderLayout(20,20));
 	static JTextField jt = new JTextField("Enter your choice here",60);
 	static JTextArea ja = new JTextArea(10, 10);
 	static File file;
 	static String input;
+	
+	
 	
 	//Finished: putting status bar, font
 	//TODO: put some frame color(Menubar, buttons).
@@ -48,8 +59,18 @@ public class GUI extends JFrame{
 	        setDefaultCloseOperation(EXIT_ON_CLOSE);
 	        text(solution);
 	        menuDisplay();
+	        buttons();
+	        add(reg);
+	        add(reg2);
+	        add(reg3);
+	        add(reg4);
+	        add(reg5);
+	        add(reg6);
+	        add(reg7);
+	        add(reg8);
+	        add(reg9);
 	        add(jp);
-	        statusBar = new JLabel("Type the number for function and press Enter.");
+	        statusBar = new JLabel("Type the number for the function and press Enter.");
 	        statusBar.setBorder(BorderFactory.createEtchedBorder());
 	        add(statusBar, BorderLayout.SOUTH);
 	    }
@@ -64,7 +85,6 @@ public class GUI extends JFrame{
 			{
 			     input = null;
 				input = jt.getText();
-				//ja.append(input + "\n");
 		        menuChoice();
 			}
 
@@ -75,12 +95,49 @@ public class GUI extends JFrame{
 	    	
 		
 	}
+	    
+	    private void buttons() 
+	    {
+	     reg = new JButton("Generate Solution");
+	     reg.setBounds(0,576,150,100);
+	     
+	     reg2 = new JButton("Print Candidate solution");
+	     reg2.setBounds(150,576,150,100);
+	     
+	     reg3 = new JButton("Calculate Fitness and Energy");
+	     reg3.setBounds(300,576,150,100);
+	     
+	     reg4 = new JButton("Make a Random Change");
+	     reg4.setBounds(450,576,150,100);
+	     
+	     reg5 = new JButton("Use Hill Climbing to improve the solution");
+	     reg5.setBounds(600,576,150,100);
+	     
+	     reg6 = new JButton("Use Simulated Annealing to improve the solution");
+	     reg6.setBounds(700,576,150,100);
+	     
+	     reg7 = new JButton("Use Genetic Algorithms to improve the solution");
+	     reg7.setBounds(650,576,150,100);
+	     
+	     reg8 = new JButton("View current loaded file");
+	     reg8.setBounds(750,576,150,100);
+	     
+	     reg9 = new JButton("Save File");
+	     reg9.setBounds(850,576,150,100);
+	    	
+	    	
+	    	
+	    	
+	    	
+	    	
+	    }
+	    
+	    
 		private void MenuBar() {
 	    	
 
 	        JMenuBar menuBar = new JMenuBar();
 	        iconOpen = new ImageIcon("src/open.png");
-	     //   iconSave = new ImageIcon("src/save.png");
 	        iconExit = new ImageIcon("src/exit.png");
 	        JFileChooser fileChooser = new JFileChooser(); //This method will search all type of files, not only CSV/TSV
 	        jp.add(ja, BorderLayout.NORTH); //This adds text area to GUI
@@ -154,19 +211,12 @@ public class GUI extends JFrame{
 	            }
 	        });
 
-	      //  saveMenu = new JMenuItem(new MenuItemAction("Save Result", iconSave,
-	      //          KeyEvent.VK_S));
-	     //  saveMenu.addActionListener((event) -> {
-	    //	   CandidateSolution mySolution;
-	    //	   mySolution.saveSolution(GUI.file);});
-
 	        exitMenu = new JMenuItem("Exit Program", iconExit);
 	        exitMenu.setMnemonic(KeyEvent.VK_C);
 	        exitMenu.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, InputEvent.CTRL_DOWN_MASK));
 	        exitMenu.addActionListener((event) -> System.exit(0));
 
 	        fileMenu.add(openMenu);
-	  //      fileMenu.add(saveMenu);
 	        fileMenu.addSeparator();
 	        fileMenu.add(exitMenu);
 
