@@ -9,10 +9,9 @@ public class GeneticAlgorithm {
  
 	static List<CandidateSolution> population = new LinkedList<CandidateSolution>();
 
-	public static CandidateSolution GeneticAlgorithmGeneration(CandidateSolutionGenerator cand) {
+	public static CandidateSolution GeneticAlgorithmGeneration(CandidateSolutionGenerator cand, int populationSize) {
 		Random rand = new Random();
 		CandidateSolution solution = null;
-		int populationSize = 100;
 		for(int i = 0 ; i < populationSize; i++ ) {
 			solution = cand.generate();
 			double solutionFitness = SolutionChanger.Fitness(solution);
@@ -62,7 +61,7 @@ public class GeneticAlgorithm {
 	
 	if (o >= 95) 
 	{
-	GUI.ja.append(SolutionChanger.changeRandom(offspring));
+	SolutionChanger.changeRandom(offspring);
 	}
 	
 	population.add(offspring);
@@ -99,7 +98,7 @@ public class GeneticAlgorithm {
 	 System.out.println("\n" + "The fitness of this solution is" + "\n" + l);
 	 
 	 return population.get(0);
-	 
+	
 	
 	
 	
@@ -154,9 +153,6 @@ public class GeneticAlgorithm {
 		CandidateSolution offSpring = new CandidateSolution(students, solutions);
 		
 		return offSpring;
-		
-		
-		
 	}
 	
 	public static void culling(List<CandidateSolution> population) {
@@ -166,14 +162,9 @@ public class GeneticAlgorithm {
 		if (y < 1) {y = 1; }
 		int a = size - y;
 	    population.subList(a, size).clear();
-		 
-		//for(int o = 0 ; o < population.size(); o++ ) 
-		//{
-		// System.out.println("\n" + population.get(o));
-		//}
-		
 		}
 
+	
 	
 
 }

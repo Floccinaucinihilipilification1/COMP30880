@@ -1,11 +1,9 @@
 import java.util.Random;
 public class HillClimbingWithSA {
-
-	public static CandidateSolution climbing(CandidateSolution candidateSolution)
+	public static CandidateSolution climbing(CandidateSolution candidateSolution, double cooling)
 	{
 	int x = 0;
-	double temp = 100;
-	double cooling = 10;
+	double temp = 1000;
 	while (x < 1000)  // run until 1000 worse results are obtained in a row
 	{	
 		
@@ -30,20 +28,16 @@ public class HillClimbingWithSA {
 			double energyIncrease = z - y;
 			double boltzmannProb = 1 / Math.pow(Math.E,(energyIncrease/temp));
 			if ( rand.nextDouble() < boltzmannProb) {
-				//System.out.println(temp); for testing
-				//System.out.println(cooling); for testing
-			
 				x = 0;
 				if (1 < temp) temp = temp - cooling;
 			}
 			else {
 				candidateSolution.setSolutionRankAt(studentIndex, oldRank); // revert worse choices.
-				//System.out.println(x); for testing
 				x++;
 			}
 		}
 		
-		GUI.ja.append("Student: " + candidateSolution.getStudentAt(studentIndex).getName() + ", Rank changed from: " + oldRank + " to: " + newRank + "\n");
+		
 		System.out.println("Student: " + candidateSolution.getStudentAt(studentIndex).getName() + ", Rank changed from: " + oldRank + " to: " + newRank + "\n");
 		
 		

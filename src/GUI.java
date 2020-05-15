@@ -32,7 +32,7 @@ public class GUI extends JFrame{
 	private JButton reg2;
 	private JButton reg3;
 	private JButton reg4;
-	private JButton reg5;
+	//private JButton reg5;
 	private JButton reg6;
 	private JButton reg7;
 	private JButton reg8;
@@ -44,6 +44,10 @@ public class GUI extends JFrame{
 	static String input;
 	
 
+	
+	static double COOLING = 200; //optimal cooling value from testing
+	static int POPULATION = 500; //optimal population value from testing
+	
 	//TODO: put some frame color(Menubar, buttons).
 
 	
@@ -125,7 +129,7 @@ public class GUI extends JFrame{
 
 					
 				}}});
-	     
+	     /*	     
 	     reg5 = new JButton("Use Hill Climbing to improve the solution");
 	     reg5.addActionListener(new ActionListener() {
 
@@ -133,14 +137,14 @@ public class GUI extends JFrame{
 				public void actionPerformed(ActionEvent e) {
 					if(GUI.solution == null) {ja.append("\n No solution generated. Please generate a solution first \n"); }
 					 else {
-					HillClimbingWithSA.climbing(GUI.solution);
+					HillClimbingWithSA.climbing(GUI.solution, COOLING);
 					GUI.solution.saveSolution("C:\\Users\\Public\\OptimumSolutionHillClimbing.csv");
 					ja.append("\n You choosed Hill Climbing. Hill Climbing implemented to solution. \n");
 					ja.append("Hill Climbing solution is saved at C:\\Users\\Public\\OptimumSolutionHillClimbing.csv \n");
 					ja.append("The Energy of the solution is " + SolutionChanger.Energy(GUI.solution)+ "\n");
 					
 				}}});
-	     
+			*/
 	     reg6 = new JButton("Use Simulated Annealing to improve the solution");
 	     reg6.addActionListener(new ActionListener() {
 
@@ -148,7 +152,7 @@ public class GUI extends JFrame{
 				public void actionPerformed(ActionEvent e) {
 					if(GUI.solution == null) {ja.append("\n No solution generated. Please generate a solution first \n"); }
 					 else {
-						 GUI.solution = HillClimbingWithSA.climbing(GUI.solution);
+						 GUI.solution = HillClimbingWithSA.climbing(GUI.solution, COOLING);
 						 GUI.solution.saveSolution("C:\\Users\\Public\\OptimumSolutionSA.csv");
 						 ja.append("\n You choosed Simulated Annealing. Simulated Annealing implemented to solution. \n");
 						 ja.append("SA solution is saved at C:\\Users\\Public\\OptimumSolutionSA.csv"+ "\n");
@@ -163,7 +167,7 @@ public class GUI extends JFrame{
 				public void actionPerformed(ActionEvent e) {
 					if(GUI.solution == null) {ja.append("\n No solution generated. Please generate a solution first \n");}
 					 else {
-						 GUI.solution = GeneticAlgorithm.GeneticAlgorithmGeneration(GUI.cand);
+						 GUI.solution = GeneticAlgorithm.GeneticAlgorithmGeneration(GUI.cand, POPULATION);
 						 GUI.solution.saveSolution("C:\\Users\\Public\\OptimumSolutionGA.csv");
 						 ja.append("\n You choose Genetic Algorithms. Genetic Algorithms implemented to solution. \n");
 						 ja.append("GA solution is saved at C:\\Users\\Public\\OptimumSolutionGA.csv"+ "\n");
@@ -205,7 +209,7 @@ public class GUI extends JFrame{
 	        jp2.add(reg2);
 	        jp2.add(reg3);
 	        jp2.add(reg4);
-	        jp2.add(reg5);
+	        //jp2.add(reg5);
 	        jp2.add(reg6);
 	        jp2.add(reg7);
 	        jp2.add(reg8);
