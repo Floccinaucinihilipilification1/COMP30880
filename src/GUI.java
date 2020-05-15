@@ -150,8 +150,10 @@ public class GUI extends JFrame{
 
 				@Override
 				public void actionPerformed(ActionEvent e) {
+					ja.append("The solution is being calculated please wait " + "\n");
 					if(GUI.solution == null) {ja.append("\n No solution generated. Please generate a solution first \n"); }
 					 else {
+						 
 						 GUI.solution = HillClimbingWithSA.climbing(GUI.solution, COOLING);
 						 GUI.solution.saveSolution("C:\\Users\\Public\\OptimumSolutionSA.csv");
 						 ja.append("\n You choosed Simulated Annealing. Simulated Annealing implemented to solution. \n");
@@ -165,8 +167,10 @@ public class GUI extends JFrame{
 
 				@Override
 				public void actionPerformed(ActionEvent e) {
+					ja.append("The solution is being calculated please wait " + "\n");
 					if(GUI.solution == null) {ja.append("\n No solution generated. Please generate a solution first \n");}
 					 else {
+						 
 						 GUI.solution = GeneticAlgorithm.GeneticAlgorithmGeneration(GUI.cand, POPULATION);
 						 GUI.solution.saveSolution("C:\\Users\\Public\\OptimumSolutionGA.csv");
 						 ja.append("\n You choose Genetic Algorithms. Genetic Algorithms implemented to solution. \n");
@@ -194,7 +198,6 @@ public class GUI extends JFrame{
 					if(GUI.file == null) {ja.append("\n" + "No files have been loaded"  + "\n");}
 					 else {
 						 GUI.solution.saveSolution("C:\\Users\\Public\\OptimumSolution.csv"); 
-						 ja.append("\n" + "File Saved"  + "\n");
 						 ja.append("\n" + "The file has been saved to the following location C:\\Users\\Public\\OptimumSolution.csv "  + "\n");
 					
 				}}});

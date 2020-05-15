@@ -37,8 +37,8 @@ public class SolutionChanger {
 		
 		candidateSolution.setSolutionRankAt(studentIndex, newRank);
 		System.out.println("Student: " + candidateSolution.getStudentAt(studentIndex).getName() + ", Rank changed from: " + oldRank + " to: " + newRank + "\n");
-		
-		return ("Student: " + candidateSolution.getStudentAt(studentIndex).getName() + ", Rank changed from: " + oldRank + " to: " + newRank);
+		GUI.ja.append("Student: " + candidateSolution.getStudentAt(studentIndex).getName() + ", Rank changed from: " + oldRank + " to: " + newRank + "\n");
+		return ("\nStudent: " + candidateSolution.getStudentAt(studentIndex).getName() + ", Rank changed from: " + oldRank + " to: " + newRank);
 	}
 
 	
