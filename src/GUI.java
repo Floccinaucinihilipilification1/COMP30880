@@ -250,9 +250,10 @@ public class GUI extends JFrame{
 			HillClimbingWithSA.climbing(GUI.solution);
 			GUI.solution.saveSolution("C:\\Users\\Public\\OptimumSolutionHillClimbing.csv");
 			ja.append("\n You typed 5. Hill Climbing implemented to solution. \n");
-			ja.append("Hill Climbing solution is saved at C:\\Users\\Public\\OptimumSolutionHillClimbing.csv \n");
-			ja.append("The Energy of the solution is " + SolutionChanger.Energy(GUI.solution)+ "\n");
 			ja.append(SolutionChanger.changeRandom(GUI.solution));
+			ja.append("\n\n Hill Climbing solution is saved at C:\\Users\\Public\\OptimumSolutionHillClimbing.csv \n");
+			ja.append("The Energy of the solution is " + SolutionChanger.Energy(GUI.solution)+ "\n");
+			
 		
              break; }
 			
