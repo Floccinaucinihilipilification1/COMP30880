@@ -19,7 +19,7 @@ import java.util.Random;
 public class GUI extends JFrame{
 	static String y = null;
 	static CandidateSolutionGenerator cand;
-	static CandidateSolution solution = null;
+	static CandidateSolution solution =  null;
 	static int x = 0;
 	//set variables for Menubar
 	private ImageIcon iconOpen;
