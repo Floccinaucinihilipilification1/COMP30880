@@ -27,7 +27,6 @@ public class GUI extends JFrame{
 	private JLabel statusBar;
 	static JPanel jp = new JPanel(new BorderLayout(20,20));
 	static JTextField jt = new JTextField("Enter your choice here",60);
-	static jt.setFont(new Font(Font.DIALOG,Font.ITALIC,16));
 	static JTextArea ja = new JTextArea(10, 10);
 	static File file;
 	static String input;
@@ -50,7 +49,7 @@ public class GUI extends JFrame{
 	        text(solution);
 	        menuDisplay();
 	        add(jp);
-	        statusBar = new JLabel("Ready");
+	        statusBar = new JLabel("Type the number for function and press Enter.");
 	        statusBar.setBorder(BorderFactory.createEtchedBorder());
 	        add(statusBar, BorderLayout.SOUTH);
 	    }
@@ -118,8 +117,8 @@ public class GUI extends JFrame{
 	        				ja.setText(ja.getText() + "\n" + line);
 		        		    line = input.readLine();
 	        			}
-	        			ja.append("\n" + "The following preference list has been loaded" + file.getAbsolutePath() + "\n");
-	        			ja.append("\n" + "The number of lines in the preference file loaded is " + lines + "\n");
+	        			ja.append("\n\n" + "The following preference list has been loaded: " + file.getAbsolutePath() + "\n");
+	        			ja.append("The number of lines in the preference file loaded is " + lines + "\n");
 	        			GUI.cand = new CandidateSolutionGenerator(y);
 	        			input.close();
 	        			menuDisplay();
@@ -210,8 +209,8 @@ public class GUI extends JFrame{
 			 if(GUI.y == null) {ja.append("\n No preference list loaded. Please load a Preference list \n"); break;}
 			 else { 
 			 GUI.solution = cand.generate();
-			   ja.append("\n Solution Generated \n");
-			   ja.append("\n The size of the solution is" + GUI.solution.getSize() + "\n");
+			   ja.append("\n You typed 1. Solution Generated \n");
+			   ja.append("The size of the solution is" + GUI.solution.getSize() + "\n");
 			   menuDisplay();
                
 			   break; }
@@ -219,7 +218,8 @@ public class GUI extends JFrame{
 		 case 2:
 			 if(GUI.solution == null) {ja.append("\n No solution generated. Please generate a solution first \n"); break;}
 			 else {
-				 ja.append("\n" + GUI.solution.toString());	
+				 ja.append("\n" + GUI.solution.toString());
+				 ja.append("\n You typed 2. Solution Printed. \n");
 			 menuDisplay();
 				break; }
 			
@@ -227,8 +227,9 @@ public class GUI extends JFrame{
 		case 3:
 			if(GUI.solution == null) {ja.append("\n No solution generated. Please generate a solution first \n"); break;}
 			 else {
-			ja.append("\n" + "the Fitness of the solution is " + SolutionChanger.Fitness(GUI.solution));
-			ja.append("\n" + "the Energy of the solution is " + SolutionChanger.Energy(GUI.solution));
+			ja.append("\n You typed 3.\n");
+			ja.append("\n" + "The Fitness of the solution is " + SolutionChanger.Fitness(GUI.solution));
+			ja.append("\n" + "The Energy of the solution is " + SolutionChanger.Energy(GUI.solution)+ "\n");
 			
 			menuDisplay();
 				break; }
@@ -237,7 +238,8 @@ public class GUI extends JFrame{
 			if(GUI.solution == null) {ja.append("\n No solution generated. Please generate a solution first \n"); break;}
 			 else {
 			SolutionChanger.changeRandom(GUI.solution);
-			ja.append("\n" + "the Energy of the solution is " + SolutionChanger.Energy(GUI.solution));
+			ja.append("\n You typed 4. Random change applied to solution. \n");
+			ja.append("The Energy of the solution is: " + SolutionChanger.Energy(GUI.solution)+ "\n");
 
 			menuDisplay();
              break; }
@@ -246,7 +248,10 @@ public class GUI extends JFrame{
 			if(GUI.solution == null) {ja.append("\n No solution generated. Please generate a solution first \n"); break;}
 			 else {
 			HillClimbingWithSA.climbing(GUI.solution);
-			ja.append("\n" + "the Energy of the solution is " + SolutionChanger.Energy(GUI.solution));
+			GUI.solution.saveSolution("C:\\Users\\Public\\OptimumSolutionHillClimbing.csv");
+			ja.append("\n You typed 5. Hill Climbing implemented to solution. \n");
+			ja.append("Hill Climbing solution is saved at C:\\Users\\Public\\OptimumSolutionHillClimbing.csv \n");
+			ja.append("The Energy of the solution is " + SolutionChanger.Energy(GUI.solution)+ "\n");
 			menuDisplay();
              break; }
 			
@@ -255,8 +260,10 @@ public class GUI extends JFrame{
 			if(GUI.solution == null) {ja.append("\n No solution generated. Please generate a solution first \n"); break;}
 			 else {
 				 GUI.solution = HillClimbingWithSA.climbing(GUI.solution);
-				 GUI.solution.saveSolution("C:\\Users\\Public\\OptimumSolution.csv");
-	        ja.append("\n" + "the Energy of the solution is " + SolutionChanger.Energy(GUI.solution));
+				 GUI.solution.saveSolution("C:\\Users\\Public\\OptimumSolutionSA.csv");
+				 ja.append("\n You typed 6. Simulated Annealing implemented to solution. \n");
+				 ja.append("SA solution is saved at C:\\Users\\Public\\OptimumSolutionSA.csv"+ "\n");
+				 ja.append("The Energy of the solution is " + SolutionChanger.Energy(GUI.solution)+ "\n");
 			menuDisplay(); 
 			    break; }
 			
@@ -264,7 +271,10 @@ public class GUI extends JFrame{
 			if(GUI.solution == null) {ja.append("\n No solution generated. Please generate a solution first \n"); break;}
 			 else {
 				 GUI.solution = GeneticAlgorithm.GeneticAlgorithmGeneration(GUI.cand);
-				 GUI.solution.saveSolution("C:\\Users\\Public\\OptimumSolution.csv");
+				 GUI.solution.saveSolution("C:\\Users\\Public\\OptimumSolutionGA.csv");
+				 ja.append("\n You typed 7. Genetic Annealing implemented to solution. \n");
+				 ja.append("GA solution is saved at C:\\Users\\Public\\OptimumSolutionGA.csv"+ "\n");
+				 ja.append("The fitness of the solution is " + SolutionChanger.Fitness(GUI.solution)+ "\n");
 			menuDisplay();
 			    break; }
 	    
