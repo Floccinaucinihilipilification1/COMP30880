@@ -43,7 +43,7 @@ public class HillClimbingWithSA {
 			}
 		}
 		
-		
+		GUI.ja.append("Student: " + candidateSolution.getStudentAt(studentIndex).getName() + ", Rank changed from: " + oldRank + " to: " + newRank + "\n");
 		System.out.println("Student: " + candidateSolution.getStudentAt(studentIndex).getName() + ", Rank changed from: " + oldRank + " to: " + newRank + "\n");
 		
 		
