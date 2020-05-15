@@ -73,13 +73,7 @@ public class GUI extends JFrame{
 		
 	    
 	    private void buttons() 
-	    {
-	    	
-	    	
-	    	
-	    	
-	    	
-	    	
+	    {	
 	     reg = new JButton("Generate Solution");
 	     reg.addActionListener(new ActionListener() {
 
@@ -88,7 +82,7 @@ public class GUI extends JFrame{
 				 if(GUI.y == null) {ja.append("\n No preference list loaded. Please load a Preference list \n"); }
 				 else { 
 				 GUI.solution = cand.generate();
-				   ja.append("\n You typed 1. Solution Generated \n");
+				   ja.append("\n You choosed Generate Solution. Solution has been generated. \n");
 				   ja.append("The size of the solution is" + GUI.solution.getSize() + "\n");
 				
 			}}});
@@ -101,7 +95,7 @@ public class GUI extends JFrame{
 					if(GUI.solution == null) {ja.append("\n No solution generated. Please generate a solution first \n"); }
 					 else {
 						 ja.append("\n" + GUI.solution.toString());
-						 ja.append("\n You typed 2. Solution Printed. \n");
+						 ja.append("\n You choosed print Solution. Solution printed. \n");
 					
 				}}});
 	     
@@ -112,7 +106,7 @@ public class GUI extends JFrame{
 				public void actionPerformed(ActionEvent e) {
 					if(GUI.solution == null) {ja.append("\n No solution generated. Please generate a solution first \n"); }
 					 else {
-					ja.append("\n You typed 3.\n");
+					ja.append("\n You Choosed calculate Fitness and Energy.\n");
 					ja.append("The Fitness of the solution is " + SolutionChanger.Fitness(GUI.solution));
 					ja.append("\n" + "The Energy of the solution is " + SolutionChanger.Energy(GUI.solution)+ "\n");
 					
@@ -126,7 +120,7 @@ public class GUI extends JFrame{
 					if(GUI.solution == null) {ja.append("\n No solution generated. Please generate a solution first \n");}
 					 else {
 					SolutionChanger.changeRandom(GUI.solution);
-					ja.append("\n You typed 4. Random change applied to solution. \n");
+					ja.append("\n You choosed make a Random Change. Random change applied to solution. \n");
 					ja.append("The Energy of the solution is: " + SolutionChanger.Energy(GUI.solution)+ "\n");
 
 					
@@ -141,8 +135,7 @@ public class GUI extends JFrame{
 					 else {
 					HillClimbingWithSA.climbing(GUI.solution);
 					GUI.solution.saveSolution("C:\\Users\\Public\\OptimumSolutionHillClimbing.csv");
-					ja.append("\n You typed 5. Hill Climbing implemented to solution. \n");
-					ja.append(SolutionChanger.changeRandom(GUI.solution));
+					ja.append("\n You choosed Hill Climbing. Hill Climbing implemented to solution. \n");
 					ja.append("\n\n Hill Climbing solution is saved at C:\\Users\\Public\\OptimumSolutionHillClimbing.csv \n");
 					ja.append("The Energy of the solution is " + SolutionChanger.Energy(GUI.solution)+ "\n");
 					
@@ -157,7 +150,7 @@ public class GUI extends JFrame{
 					 else {
 						 GUI.solution = HillClimbingWithSA.climbing(GUI.solution);
 						 GUI.solution.saveSolution("C:\\Users\\Public\\OptimumSolutionSA.csv");
-						 ja.append("\n You typed 6. Simulated Annealing implemented to solution. \n");
+						 ja.append("\n You choosed Simulated Annealing. Simulated Annealing implemented to solution. \n");
 						 ja.append("SA solution is saved at C:\\Users\\Public\\OptimumSolutionSA.csv"+ "\n");
 						 ja.append("The Energy of the solution is " + SolutionChanger.Energy(GUI.solution)+ "\n");
 					
@@ -172,7 +165,7 @@ public class GUI extends JFrame{
 					 else {
 						 GUI.solution = GeneticAlgorithm.GeneticAlgorithmGeneration(GUI.cand);
 						 GUI.solution.saveSolution("C:\\Users\\Public\\OptimumSolutionGA.csv");
-						 ja.append("\n You typed 7. Genetic Annealing implemented to solution. \n");
+						 ja.append("\n You choose Genetic Algorithms. Genetic Algorithms implemented to solution. \n");
 						 ja.append("GA solution is saved at C:\\Users\\Public\\OptimumSolutionGA.csv"+ "\n");
 						 ja.append("The fitness of the solution is " + SolutionChanger.Fitness(GUI.solution)+ "\n");
 					
@@ -336,7 +329,7 @@ public class GUI extends JFrame{
 	    public static void menuDisplay() 
 	    {
 
-	    	ja.append("\nPlease load a preference list and then choose a button from the menu above \n"
+	    	ja.append("Please load a preference list and then choose a button from the menu above \n"
 	    			+ "The preference list loaded should be in the csv format \n" );
 
 	    
