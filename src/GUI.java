@@ -249,9 +249,8 @@ public class GUI extends JFrame{
 	        		file = fileChooser.getSelectedFile();
 	        		GUI.y = file.getAbsolutePath();
 	        		String n = "csv";
-	        		String m = "tsv";
 	        		String fileType = y.substring(y.length() - 3);
-	        		if(fileType.equals(n) || fileType.equals(m) ) {
+	        		if(fileType.equals(n)) {
 	        		    
 	        				        			
 	        		
@@ -277,7 +276,7 @@ public class GUI extends JFrame{
 	        		else {
 		        		ja.append("Opening failed" + "\n");
         		}
-	        		 if(!fileType.equals(n) && !fileType.equals(m) ) {ja.append("\n" + "The file loaded was not a tsv or a csv file. Please load a tsv or csv file "+ "\n");
+	        		 if(!fileType.equals(n)) {ja.append("\n" + "The file loaded was not a csv file. Please load a csv file "+ "\n");
 	        		 }
 	        }}
 	       
