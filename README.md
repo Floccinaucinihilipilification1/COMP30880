@@ -67,9 +67,46 @@ Task 6: The GAMate class contains the static mate method, this method takes 2 ca
 The GeneticAlgorithm class creates a number of solutions. It then adds these solutions to a list where they are sorted based on their fitness. Then the top 10% of the list of solutions are given the chance to mate. Mating is done at random so not all of the top 10% will sucessfully mate and some may mate more than once. There is a 3% chance that a solution that is not in the top 10% will be allowed to mate. Allowing fresh solutions to enter the pool of solutions and helping to reduce issues that may occure from limiting the mating to the top 10%. Then the solutions are ranked by fitness again and the bottom 10% is culled.
 This process is repeated until new lists of solutions are created with no improvement.
 
+Task 7:
+The program currently only accepts csv and tsv files.
+Solutions are saved to C:\\Users\\Public\\OptimumSolution.csv
+Solutions are currently only saved as csv files as these were the easiest files to generate from the data avalible. 
+Buttons have been added to allow loading a file and exiting the program.
+A simple number based interface has been created to allow the user to navigate the options of the program.
+A solution can be saved at any time and when ever the SA or GA sections are run the optimal result will be saved. 
+A runable Jar is located in the src folder for the project.
+Running instructions are located in this document.
+
+
+Code has been added to prevent the user from running the program with no preference list loaded and with no data set generated.
+The user will be informed if a file loading failed and if the file was the wrong type. 
+The menu will inform the user if they enter an incorrect option and prompt them to enter a correct one. 
+The menu has an option to inform the user what preference list they have loaded and the path to this file. 
+When the solution is generated the size of the solution will be returned to the user so that they can be sure a solution of the correct size has been generated. 
+When a file is loaded in the number of lines in the solution will be displayed so that the user can make sure the file is the correct length.
+The jar may display no action for a period of time while the solution is being generated. 
+
+Running Instructions: 
+The jar requires the following files.
+Miskatonic Staff Members.csv
+names.csv
+ProjectList.csv
+PreferenceList.csv
+So it should be run in a folder that contains these files. 
+When the program loads use the open file in the menu and navigate to the PreferenceList desired to be used.
+Then press 1 to generate a solution. Then use the menu to preform the actions desired.
+
+ 
+
+
+
 Final Sprint:
 
-Organisation: Our code was reorganised and classes that were no longer needed were removed (HillClimbing, calsses used to generate sample inputs w/ normal distribution etc.) The GAMate class was removed with its method being moved into the GeneticAlgorithm class where it was more appropriate. GeneticAlgorithm and HillClimbingWithSA were also changed so their respective population and cooling values were not fixed to allow for easier testing. Additionally the CandidateSolutionGenerator class was modified so it could properly read inputs like the sample preference matrix provided to us, it was also modified so that it would funciton properly when run in the jar (Using inputStremReader insead of FileReader).
+Organisation: Our code was reorganised and classes that were no longer needed were removed (HillClimbing, classes
+used to generate sample inputs w/ normal distribution etc.) The GAMate class was removed with its method being moved into the
+GeneticAlgorithm class where it was more appropriate. GeneticAlgorithm and HillClimbingWithSA were also changed so their respective population and
+cooling values were not fixed to allow for easier testing. Additionally the CandidateSolutionGenerator class was modified so it could properly read inputs like
+the sample preference matrix provided to us, it was also modified so that it would funciton properly when run in the jar (Using inputStremReader insead of FileReader).
 
 Testing: We performed to see how HillClimbingWithSA and GeneticAlgorithms performed with different cooling/population values. Testing was carried out in the TestCases.java class
 The results for SA were:
@@ -86,3 +123,30 @@ The resuls for GA were:
 			pop100 :50.73333333333334
 			pop250 :50.73333333333334
       
+
+The GUI was altered to remove the number based menu and to instead use a button based system.
+The code was also changed so that the relevant information for all of the operations would be printed to the text area.
+
+Requirements for running the java executable:
+The Java executable
+The file to be worked on in csv form. 
+The program will only accept files in the csv form.
+RandomProjects.csv
+
+Instructions for running the java executable:
+Double click the Final Sprint exe to run the program. 
+Go to file and click open file.
+Navigate to the location of the csv file to be used and select that file.
+Press the generate solution button to create an initial solution.
+Then use the remaining buttons to perform the operations you desire on file and save it.
+
+
+Total Distribution of work over the 8 sprints was as follows:
+Sprints 1-6 The workload was 50% Michael Bradley, 50% Donnchadh Robinson.
+Sprint 7 The workload was 40% Michael Bradley, 40% Donnchadh Robinson and 10% Dongryul Jeong who implemented the culling method.
+Sprint 8 The workload was 33% Michael Bradley, 33% Donnchadh Robinson and 33% Dongryul Jeong 
+No formal agreement was made on how the work should be distributed but it was presumed that
+in each sprint that a simliar anount of work would be contributed by each participant. This did not occure. 
+ 
+
+
