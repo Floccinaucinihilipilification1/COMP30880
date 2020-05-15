@@ -46,7 +46,7 @@ public class GUI extends JFrame{
 
 	
 	static double COOLING = 200; //optimal cooling value from testing
-	static int POPULATION = 500; //optimal population value from testing
+	static int POPULATION = 100; //optimal population value from testing
 	
 	//TODO: put some frame color(Menubar, buttons).
 
@@ -324,13 +324,6 @@ public class GUI extends JFrame{
 	        }
 	    }
 
-	    
-			 
-			 
-			 
-			 
-
-	    
 	    public static void menuDisplay() 
 	    {
 
