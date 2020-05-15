@@ -4,6 +4,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.io.BufferedReader;
 import java.awt.event.ItemEvent;
 import java.io.File;
@@ -35,6 +38,7 @@ public class GUI extends JFrame{
 	private JButton reg8;
 	private JButton reg9;
 	static JPanel jp = new JPanel(new BorderLayout(20,20));
+	static JPanel jp2 = new JPanel(new BorderLayout(20,20));
 	static JTextField jt = new JTextField("Enter your choice here",60);
 	static JTextArea ja = new JTextArea(10, 10);
 	static JTextArea jb = new JTextArea(10, 10);
@@ -59,17 +63,9 @@ public class GUI extends JFrame{
 	        text(solution);
 	        menuDisplay();
 	        buttons();
-	        add(reg);
-	        add(reg2);
-	        add(reg3);
-	        add(reg4);
-	        add(reg5);
-	        add(reg6);
-	        add(reg7);
-	        add(reg8);
-	        add(reg9);
 	        add(jp);
-	        statusBar = new JLabel("Type the number for the function and press Enter.");
+	        
+	        statusBar = new JLabel("Choose a button");
 	        statusBar.setBorder(BorderFactory.createEtchedBorder());
 	        add(statusBar, BorderLayout.SOUTH);
 	    }
@@ -98,36 +94,149 @@ public class GUI extends JFrame{
 	    
 	    private void buttons() 
 	    {
+	    	
+	    	
+	    	
+	    	
+	    	
+	    	
 	     reg = new JButton("Generate Solution");
-	     reg.setBounds(0,576,150,100);
+	     reg.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				 if(GUI.y == null) {ja.append("\n No preference list loaded. Please load a Preference list \n"); }
+				 else { 
+				 GUI.solution = cand.generate();
+				   ja.append("\n You typed 1. Solution Generated \n");
+				   ja.append("The size of the solution is" + GUI.solution.getSize() + "\n");
+				
+			}}});
 	     
 	     reg2 = new JButton("Print Candidate solution");
-	     reg2.setBounds(150,576,150,100);
+	     reg2.addActionListener(new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					if(GUI.solution == null) {ja.append("\n No solution generated. Please generate a solution first \n"); }
+					 else {
+						 ja.append("\n" + GUI.solution.toString());
+						 ja.append("\n You typed 2. Solution Printed. \n");
+					
+				}}});
 	     
 	     reg3 = new JButton("Calculate Fitness and Energy");
-	     reg3.setBounds(300,576,150,100);
+	     reg3.addActionListener(new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					if(GUI.solution == null) {ja.append("\n No solution generated. Please generate a solution first \n"); }
+					 else {
+					ja.append("\n You typed 3.\n");
+					ja.append("The Fitness of the solution is " + SolutionChanger.Fitness(GUI.solution));
+					ja.append("\n" + "The Energy of the solution is " + SolutionChanger.Energy(GUI.solution)+ "\n");
+					
+				}}});
 	     
 	     reg4 = new JButton("Make a Random Change");
-	     reg4.setBounds(450,576,150,100);
+	     reg4.addActionListener(new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					if(GUI.solution == null) {ja.append("\n No solution generated. Please generate a solution first \n");}
+					 else {
+					SolutionChanger.changeRandom(GUI.solution);
+					ja.append("\n You typed 4. Random change applied to solution. \n");
+					ja.append("The Energy of the solution is: " + SolutionChanger.Energy(GUI.solution)+ "\n");
+
+					
+				}}});
 	     
 	     reg5 = new JButton("Use Hill Climbing to improve the solution");
-	     reg5.setBounds(600,576,150,100);
+	     reg5.addActionListener(new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					if(GUI.solution == null) {ja.append("\n No solution generated. Please generate a solution first \n"); }
+					 else {
+					HillClimbingWithSA.climbing(GUI.solution);
+					GUI.solution.saveSolution("C:\\Users\\Public\\OptimumSolutionHillClimbing.csv");
+					ja.append("\n You typed 5. Hill Climbing implemented to solution. \n");
+					ja.append(SolutionChanger.changeRandom(GUI.solution));
+					ja.append("\n\n Hill Climbing solution is saved at C:\\Users\\Public\\OptimumSolutionHillClimbing.csv \n");
+					ja.append("The Energy of the solution is " + SolutionChanger.Energy(GUI.solution)+ "\n");
+					
+				}}});
 	     
 	     reg6 = new JButton("Use Simulated Annealing to improve the solution");
-	     reg6.setBounds(700,576,150,100);
+	     reg6.addActionListener(new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					if(GUI.solution == null) {ja.append("\n No solution generated. Please generate a solution first \n"); }
+					 else {
+						 GUI.solution = HillClimbingWithSA.climbing(GUI.solution);
+						 GUI.solution.saveSolution("C:\\Users\\Public\\OptimumSolutionSA.csv");
+						 ja.append("\n You typed 6. Simulated Annealing implemented to solution. \n");
+						 ja.append("SA solution is saved at C:\\Users\\Public\\OptimumSolutionSA.csv"+ "\n");
+						 ja.append("The Energy of the solution is " + SolutionChanger.Energy(GUI.solution)+ "\n");
+					
+				}}});
 	     
 	     reg7 = new JButton("Use Genetic Algorithms to improve the solution");
-	     reg7.setBounds(650,576,150,100);
+	     reg7.addActionListener(new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					if(GUI.solution == null) {ja.append("\n No solution generated. Please generate a solution first \n");}
+					 else {
+						 GUI.solution = GeneticAlgorithm.GeneticAlgorithmGeneration(GUI.cand);
+						 GUI.solution.saveSolution("C:\\Users\\Public\\OptimumSolutionGA.csv");
+						 ja.append("\n You typed 7. Genetic Annealing implemented to solution. \n");
+						 ja.append("GA solution is saved at C:\\Users\\Public\\OptimumSolutionGA.csv"+ "\n");
+						 ja.append("The fitness of the solution is " + SolutionChanger.Fitness(GUI.solution)+ "\n");
+					
+				}}});
 	     
 	     reg8 = new JButton("View current loaded file");
-	     reg8.setBounds(750,576,150,100);
+	     reg8.addActionListener(new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					if(GUI.file == null) {ja.append("\n" + "No files have been loaded"  + "\n"); }
+					 else {
+					ja.append("\n" + "The following preference list has been loaded" + GUI.file.getAbsolutePath() + "\n");	 
+					
+				}}});
 	     
 	     reg9 = new JButton("Save File");
-	     reg9.setBounds(850,576,150,100);
+	     reg9.addActionListener(new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					if(GUI.file == null) {ja.append("\n" + "No files have been loaded"  + "\n");}
+					 else {
+						 GUI.solution.saveSolution("C:\\Users\\Public\\OptimumSolution.csv"); 
+						 ja.append("\n" + "File Saved"  + "\n");
+						 ja.append("\n" + "The file has been saved to the following location C:\\Users\\Public\\OptimumSolution.csv "  + "\n");
+					
+				}}});
 	    	
-	    	
-	    	
-	    	
+	     jp2.setLayout(new GridLayout(1,9));
+	     jp2.setPreferredSize(new Dimension(200, 100));
+	     jp2.setBackground(Color.black);
+	     
+	     
+	   	
+	        jp2.add(reg);
+	        jp2.add(reg2);
+	        jp2.add(reg3);
+	        jp2.add(reg4);
+	        jp2.add(reg5);
+	        jp2.add(reg6);
+	        jp2.add(reg7);
+	        jp2.add(reg8);
+	        jp2.add(reg9);
 	    	
 	    	
 	    }
@@ -142,10 +251,13 @@ public class GUI extends JFrame{
 	        JFileChooser fileChooser = new JFileChooser(); //This method will search all type of files, not only CSV/TSV
 	        jp.add(ja, BorderLayout.WEST); //This adds text area to GUI
 	        jp.add(jb, BorderLayout.EAST);
+	        jp.add(jp2,BorderLayout.NORTH);
 	        JScrollPane scrollPane1 = new JScrollPane(ja);
 	        scrollPane1.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 	        ja.setEditable(false);
+	        jb.setEditable(false);
 	        jp.add(scrollPane1);
+	        
 	        
 	        
 	        fileMenu = new JMenu("File");
